@@ -1,0 +1,172 @@
+<BOUCLE_principale(ARTICLES) {id_article}>
+<INCLURE{fond=inc-head}{skel=#SQUELETTE}>
+
+<INCLURE{fond=inc-header}{skel=#SQUELETTE}>
+
+<div id="colmask">
+	<div id="colmid">
+		<div id="colright">
+			<div id="col1wrap">
+				<div id="col1pad">
+					<div id="col1">
+					
+						<!-- Column 1 start -->
+		<header class="cartouche">
+            <div class="surlignable">
+				[<p class="#EDIT{surtitre} surtitre">(#SURTITRE)</p>]
+				<h1 class="#EDIT{titre} entry-title">#TITRE</h1>
+				[<p class="#EDIT{soustitre} soustitre">(#SOUSTITRE)</p>]
+            </div>
+            <INCLURE{fond=inc-evenements}{id_article}{env}>           
+        </header>
+
+       <!-- load Galleriffic -->
+      <script src="#CHEMIN{js/galleriffic/js/jquery.galleriffic.js}"></script>
+      <script src="#CHEMIN{js/galleriffic/js/jquery.opacityrollover.js}"></script>
+            
+      [(#REM) Portfolio : album d'images ]
+      
+      <div id="gallery" class="content">
+      	
+      	<div class="slideshow-container">
+      		<div id="loading" class="loader"></div>
+      		<div id="slideshow" class="slideshow"></div>
+      	</div>
+      	<div id="controls" class="controls"></div>
+      	<div id="caption" class="caption-container"></div>
+      </div>
+      	      			
+      			<B_documents_portfolio>
+      			<div id="thumbs" class="navigation">
+      				<ul class="thumbs noscript">
+      				<BOUCLE_documents_portfolio(DOCUMENTS) {id_article} {extension IN png,jpg,gif} {par num titre} {par titre} {par date} {doublons}>
+      				[<li><a href="#URL_DOCUMENT" [ title="(#TITRE|couper{80}|texte_backend)"] class="thumb" rel="portfolio" >(#FICHIER|copie_locale|image_reduire{250,150}|image_recadre{100,100,center}|inserer_attribut{alt,[(#TITRE|couper{80}|texte_backend)]})</a>
+      				<div class="caption serif">
+      					[<span class="titre inline">(#TITRE)</span>]
+      					[<span class="descr inline">(#DESCRIPTIF|PtoBR)</span>]
+      				</div>
+      				</li>]
+      				</BOUCLE_documents_portfolio>
+      				</ul>
+      			</div>
+      			</B_documents_portfolio>
+			                
+        [(#INCLURE{fond=inc-various/inc-videoplayer,id_article,video_flv,video_mp4,video_webm})]
+        	
+         [(#INCLURE{fond=inc-various/inc-videos-related}{id_article}{env})] 
+         
+        <div class="surlignable">
+					
+			[<div class="#EDIT{texte} texte entry-content">(#TEXTE|image_reduire{500,400})</div>]
+			
+		</div>
+
+        
+		[<div class="ps surlignable"><h2 class="pas_surlignable"><:info_ps:></h2><div class="#EDIT{ps}">(#PS|image_reduire{500,0})</div></div>]
+
+	
+        [<div class="notes surlignable"><h2 class="pas_surlignable"><:info_notes:></h2>(#NOTES)</div>]
+
+		[(#REM) Forum de l'article ]
+		<a href="#forum" name="forum" id="forum"></a>
+		<INCLURE{fond=inc-forum}{id_article} />
+		[<p class="repondre"><a href="(#PARAMETRES_FORUM|url_reponse_forum)" rel="noindex nofollow"><:repondre_article:></a></p>] 
+		
+		
+		<p class="date"><small>publié le <abbr class="published" title="[(#DATE|date_iso)]">[(#DATE|affdate)]</abbr></small></p>
+		
+						<!-- Column 1 end -->
+					</div>
+				</div>
+			</div>
+			
+			<div id="col2" class="[(#ENV{r})]">
+				[<style type="text/css">
+			      #col2 .Annee-(#ENV{y}) a {color: #ee0000;}
+			    </style>]
+				<!-- Column 2 start -->
+				 	[(#REM) Menu de navigation par rubriques ]
+        			<INCLURE{fond=inc-rubriques}{id_rubrique}>	
+					#FORMULAIRE_RECHERCHE
+				<!-- Column 2 end -->
+			</div>
+	
+			[(#REM) Colonne 3 ]
+			<div id="col3">
+				<!-- Column 3 start -->
+				<INCLURE{fond=inc-sidebar/inc-col3affiche}{skel=#SQUELETTE}>
+				<INCLURE{fond=inc-sidebar/inc-col3video}{skel=#SQUELETTE}>
+				<!-- Column 3 end -->
+			</div>
+	
+		</div>
+	</div>
+</div>
+
+<div id="footer">
+	[(#REM) Pied de page ]
+	<INCLURE{fond=inc-pied}{skel=#SQUELETTE}>
+</div>
+
+	<script>
+		
+ jQuery(document).ready(function($) {
+ 				// We only want these styles applied when javascript is enabled
+ 				$('div.navigation').css({'width' : '300px', 'float' : 'left'});
+ 				$('div.content').css('display', 'block');
+ 
+ 				// Initially set opacity on thumbs and add
+ 				// additional styling for hover effect on thumbs
+ 				var onMouseOutOpacity = 0.67;
+ 				$('#thumbs ul.thumbs li').opacityrollover({
+ 					mouseOutOpacity:   onMouseOutOpacity,
+ 					mouseOverOpacity:  1.0,
+ 					fadeSpeed:         'fast',
+ 					exemptionSelector: '.selected'
+ 				});
+ 				
+ 				// Initialize Advanced Galleriffic Gallery
+ 				var gallery = $('#thumbs').galleriffic({
+ 					delay:                     2500,
+ 					numThumbs:                 20,
+ 					preloadAhead:              2,
+ 					enableTopPager:            false,
+ 					enableBottomPager:         true,
+ 					maxPagesToShow:            7,
+ 					imageContainerSel:         '#slideshow',
+ 					controlsContainerSel:      '#controls',
+ 					captionContainerSel:       '#caption',
+ 					loadingContainerSel:       '#loading',
+ 					renderSSControls:          true,
+ 					renderNavControls:         true,
+ 					playLinkText:              'Diaporama',
+ 					pauseLinkText:             'Pause',
+ 					prevLinkText:              '&lsaquo; REW &lsaquo;',
+ 					nextLinkText:              '&rsaquo; FWD &rsaquo;',
+ 					nextPageLinkText:          'Next &rsaquo;',
+ 					prevPageLinkText:          '&lsaquo; Prev',
+ 					enableHistory:             false,
+ 					autoStart:                 false,
+ 					syncTransitions:           true,
+ 					defaultTransitionDuration: 900,
+ 					onSlideChange:             function(prevIndex, nextIndex) {
+ 						// 'this' refers to the gallery, which is an extension of $('#thumbs')
+ 						this.find('ul.thumbs').children()
+ 							.eq(prevIndex).fadeTo('fast', onMouseOutOpacity).end()
+ 							.eq(nextIndex).fadeTo('fast', 1.0);
+ 					},
+ 					onPageTransitionOut:       function(callback) {
+ 						this.fadeTo('fast', 0.0, callback);
+ 					},
+ 					onPageTransitionIn:        function() {
+ 						this.fadeTo('fast', 1.0);
+ 					}
+ 				});
+ 			});
+   
+     </script>
+
+
+</body>
+</html>
+</BOUCLE_principale>

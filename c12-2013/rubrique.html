@@ -1,0 +1,67 @@
+[(#REM)
+	Un cache plus court, pour la boucle syndic_articles
+]#CACHE{3600}
+<BOUCLE_principale(RUBRIQUES) {id_rubrique}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<meta charset="utf-8">
+<title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+<INCLURE{fond=inc-head}>
+<link rel="alternate" type="application/rss+xml" title="<:syndiquer_rubrique:>" href="[(#URL_PAGE{backend}|parametre_url{id_rubrique,#ID_RUBRIQUE})]" />
+</head>
+
+<body class="page_rubrique" onLoad="systest()">
+<div id="page">
+
+	<INCLURE{fond=inc-entete}{id_rubrique}>
+
+    <div id="contenu" class="contenu">
+
+	<BOUCLE_deux(ARTICLES){id_rubrique}{1,1}>
+         <B_articles>
+         [(#REM) - Si plusieurs articles, affiche la liste des articles ]
+        <!--<div class="menu articles">-->
+            #ANCRE_PAGINATION
+            <!--<h2><:articles_rubrique:></h2>-->
+            <BOUCLE_rubrique_en_cours(RUBRIQUES){id_rubrique}>
+            <h1 class="entry-title">#TITRE</h1></BOUCLE_rubrique_en_cours>
+            <ul class="articles">
+                <BOUCLE_articles(ARTICLES) {id_rubrique} {par date}{inverse} {pagination}>
+                <li>
+                    <h3><a href="#URL_ARTICLE">#TITRE</a></h3>
+                    [<p class="serif small"><a href="#URL_ARTICLE">(#TEXTE|couper{150})</a></p>]
+                </li>
+                </BOUCLE_articles>
+            </ul>
+            [<p class="pagination">(#PAGINATION)</p>]
+        <!--</div>-->
+        </B_articles>
+        
+    </BOUCLE_deux>
+
+        <BOUCLE_unseul(ARTICLES){id_rubrique}>
+        [(#REM) - Si un seul article, affiche cet article ]
+ 		  <div class="surlignable single">
+        	[<h2 class="#EDIT{surtitre} surtitre">(#SURTITRE)</h2>]
+			[<div id="#EDIT{chapo} chapo">(#CHAPO)</div>]
+			
+			[<div class="#EDIT{texte} texte entry-content">(#TEXTE)</div>]
+		</div>
+		
+		[(#REM) Gestion du portfolio
+		][(#INCLURE{fond=inc-documents}{id_article}{env})]
+
+        [<div class="notes surlignable"><h2 class="pas_surlignable"><:info_notes:></h2>(#NOTES)</div>]
+		</BOUCLE_unseul>
+
+<//B_deux>
+
+	</div><!--#contenu-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+
+</div><!--#page-->
+</body>
+</html>
+</BOUCLE_principale>

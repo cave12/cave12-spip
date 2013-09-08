@@ -1,0 +1,68 @@
+<BOUCLE_principale(ARTICLES) {id_article}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<meta charset="utf-8">
+<title>[(#TITRE|textebrut)][ - (#SURTITRE|textebrut)]</title>
+[<meta name="description" content="(#TEXTE|couper{150}|attribut_html)" />]
+<INCLURE{fond=inc-head}>
+<link rel="canonical" href="#URL_SITE_SPIP/<BOUCLE_canonical(spip_urls)
+        {id_objet=#ID_ARTICLE}
+        {type=article}
+        {par date}
+        {inverse}
+        {0,1}>#URL</BOUCLE_canonical>" />
+</head>
+
+<body class="page_article article-1<BOUCLE_test_age(ARTICLES){id_article}{age<1}> article-actu</BOUCLE_test_age>" onLoad="systest()">
+<div id="page">
+
+	<INCLURE{fond=inc-entete}{id_rubrique}{id_article}>
+
+    <div id="contenu" class="contenu programme vevent" role="main">
+      
+      
+      <div class="intro-block">
+        
+    	<div class="date-block">
+    		
+    		<div id="date" class="art-date[ redac (#DATE_REDAC|jour)] dtstart" title="[(#DATE|affdate{'Y-m-d'})]">
+    			<div class="uppercase center day">[(#DATE_REDAC|nom_jour) - ][(#DATE|nom_jour)]</div>
+    			<div class="uppercase center daynr notc">[(#DATE_REDAC|jour)-][(#DATE|jour)]</div>
+    			<div class="uppercase center month">[(#DATE|nom_mois)]</div>
+    			<div class="uppercase center year">[(#DATE|annee)]</div>
+    		</div>
+    		
+    		[(#SESSION{id_auteur}|?{' '})
+    		]
+    		[(#INCLURE{fond=inc-geoloc}{id_article}{env})]
+    	</div><!-- .date-block -->
+    	
+    	<div id="intro" class="intro">
+    			<div id="map-container" class="hidden"></div>
+	    		[<h1 class="summary">(#TITRE)</h1>]
+				<!-- microformat data -->
+	    		<span class="category">Concert</span>
+	    		<!-- / microformat data -->
+	        	[<h2 class="#EDIT{surtitre} surtitre">(#SURTITRE)</h2>]
+				[<div id="chapo" class="#EDIT{chapo} description">(#CHAPO)</div>]
+			</div><!-- #intro -->
+			
+			</div><!-- .intro-block -->
+			
+			<div id="programme-txt" class="#EDIT{texte} programme-txt">
+				<!-- {fond=inc-affiches}{id_article}{env} -->
+				
+				[(#TEXTE|image_reduire{500,0})]
+			</div>
+			
+			
+	</div><!--#contenu-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+	
+	
+</div><!--#page-->
+</body>
+</html>
+</BOUCLE_principale>

@@ -1,0 +1,33 @@
+@font-face {
+    font-family: 'InconsolataM';
+    src: url('typo/inco/Inconsolata-webfont.eot');
+    src: url('typo/inco/Inconsolata-webfont.eot?#iefix') format('embedded-opentype'),
+         url('typo/inco/Inconsolata-webfont.woff') format('woff'),
+         url('typo/inco/Inconsolata-webfont.ttf') format('truetype'),
+         url('typo/inco/Inconsolata-webfont.svg#InconsolataMedium') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'NotCourierSansB';
+    src: url('typo/notc/NotCourierSans-Bold-webfont.eot');
+    src: url('typo/notc/NotCourierSans-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('typo/notc/NotCourierSans-Bold-webfont.woff') format('woff'),
+         url('typo/notc/NotCourierSans-Bold-webfont.ttf') format('truetype'),
+         url('typo/notc/NotCourierSans-Bold-webfont.svg#NotCourierSansBold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'lmroman8regular';
+    src: url('typo/LMrom/LMroman8-regular.eot');
+    src: url('typo/LMrom/LMroman8-regular.eot?#iefix') format('embedded-opentype'),
+         url('typo/LMrom/LMroman8-regular.woff') format('woff'),
+         url('typo/LMrom/LMroman8-regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}

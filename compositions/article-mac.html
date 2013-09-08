@@ -1,0 +1,74 @@
+<BOUCLE_principale(ARTICLES) {id_article}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<title>[(#TITRE|textebrut)][ - (#SURTITRE|textebrut)]</title>
+[<meta name="description" content="(#TEXTE|couper{150}|attribut_html)" />]
+<INCLURE{fond=inc-head}>
+<link rel="canonical" href="#URL_SITE_SPIP/<BOUCLE_canonical(spip_urls)
+        {id_objet=#ID_ARTICLE}
+        {type=article}
+        {par date}
+        {inverse}
+        {0,1}>#URL</BOUCLE_canonical>" />
+
+</head>
+
+<body class="page_article concert-series" onLoad="systest()">
+<div id="page">
+
+	<INCLURE{fond=inc-entete}{id_rubrique}>
+	
+	<h1 style="clear:left" class="title-bloc">[(#SURTITRE)]</h1>
+		
+	<BOUCLE_intro(ARTICLES) {id_article=215}>
+		<div class="texte-intro fleft"> 
+		[<div class="chapo">(#CHAPO)</div>]
+		
+		<p class="show-hide-link">[<a href="#" class="show-hide-action">plus d&#39;infos</a><a href="#" class="instant-show hide-hide-action">moins d&#39;infos</a>]</p>
+		
+		[<div class="show-hide">(#TEXTE|image_reduire{500,0})</div>]
+		</div>
+	</BOUCLE_intro>
+	
+	<!-- tester si composition = mac2011 -->
+	
+	<B_dates>
+	<div class="cleft">
+	<BOUCLE_dates(ARTICLES) {composition=mac}>
+	<div class="bloc-date-container [ bloc-date-cont-(#EXPOSE)]">
+		<a class="bloc-date art-date[ bloc-date-(#EXPOSE)]" href="#URL_ARTICLE">
+			<div class="uppercase center day">[(#DATE_REDAC|nom_jour) - ][(#DATE|nom_jour)]</div>
+			<div class="uppercase center daynr">[(#DATE_REDAC|jour)-][(#DATE|jour)]</div>
+			<div class="uppercase center month">[(#DATE|nom_mois)]</div>
+		</a>
+	</div>
+	</BOUCLE_dates>
+	</div>
+	</B_dates>
+
+    <div id="contenu" class="programme vevent cleft">
+    		
+    		<div id="intro">
+    		[<h1 class="summary">(#TITRE)</h1>]
+			<!-- microformat data -->
+    		<span class="category">Concert</span>
+    		<!-- / microformat data -->
+			[<div id="chapo" class="#EDIT{chapo} description">(#CHAPO)</div>]
+			</div>
+			<div id="programme-txt" class="#EDIT{texte}">
+			[(#TEXTE|image_reduire{500,0})]
+		
+		[(#REM) Gestion du portfolio
+		][(#INCLURE{fond=inc-documents}{id_article}{env})]
+
+        [<div class="notes surlignable"><h2 class="pas_surlignable"><:info_notes:></h2>(#NOTES)</div>]
+			</div>
+			
+	</div><!--#contenu-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+</div><!--#page-->
+</body>
+</html>
+</BOUCLE_principale>

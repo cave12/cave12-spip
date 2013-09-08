@@ -1,0 +1,45 @@
+[(#REM)
+	Comportement voulu:
+	
+	1.1 tester pour des jpg/png/gif du groupe mots-clés "affiche" #1
+	
+		1.2 afficher l'image
+		 
+	2.1 tester pour de pdf du groupe mots-clés "affiche" #1
+	
+		2.2 tester si le PDF a une vignette!
+	
+		mots_liens.id_mot
+]
+<B_affiches>
+	<div class="affiche affiche-img">
+		<BOUCLE_affiches(DOCUMENTS mots_liens) {id_article} {mots.id_groupe=1} {extension==jpg|png|gif}{par num titre, date}>
+		<a href="#FICHIER">[(#FICHIER|image_reduire{400,400})]</a>
+		
+			<BOUCLE_mots(MOTS){id_document}>
+				<div class="legende">
+				<p class="small">[Affiche par (#TITRE).]</p>
+				</div>
+			</BOUCLE_mots>
+			
+		</BOUCLE_affiches>
+	</div>
+</B_affiches>
+
+<//B_affiches>
+
+<B_aff_pdf>
+	<div class="affiche affiche-pdf">
+		<BOUCLE_aff_pdf(DOCUMENTS mots_liens) {id_article} {mots.id_groupe=1} {extension==pdf} {par num titre, date}>
+		<a href="#FICHIER">[(#LOGO_DOCUMENT{400,400})]</a>
+		
+			<BOUCLE_motspdf(MOTS){id_document}>
+				<div class="legende">
+				<p class="small">[Affiche par (#TITRE).]</p>
+				</div>
+			</BOUCLE_motspdf>
+			
+		</BOUCLE_aff_pdf>
+	</div>
+</B_aff_pdf>
+

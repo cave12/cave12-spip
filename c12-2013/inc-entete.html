@@ -1,0 +1,33 @@
+<div id="header" class="header">
+<h1 class="site-title"><a rel="start home" href="http://www.cave12.org/">#NOM_SITE_SPIP</a></h1>
+
+[(#REM) <!-- Afficher les Dates de concert actuelles! --> ]
+
+<BOUCLE_article_courant(ARTICLES){id_article}>
+		<style>.concert-no-#ID_ARTICLE a {
+			background: #ce0000;
+			color:#fff;
+			box-shadow: inset 0 0 8px rgb(122, 11, 11);
+		}
+		.concert-no-#ID_ARTICLE a:hover {
+			color: #fff;
+		}
+		
+		</style>
+</BOUCLE_article_courant>
+
+<BOUCLE_retest_age(ARTICLES){id_rubrique=1}{age<1}> 
+			
+			<ul class="mini-cal">
+			
+				<BOUCLE_concerts_pre(ARTICLES){id_rubrique=1}{age<1}{par date}{0,5}>
+					<li class="mini-cal-box concert-no-#ID_ARTICLE">
+						<a href="#URL_ARTICLE" title="[(#TITRE)]">
+						[(#DATE_REDAC|jour)-][(#DATE|jour)]</a></li>
+				</BOUCLE_concerts_pre>
+						
+			</ul>
+			
+</BOUCLE_retest_age>
+
+</div><!--#header-->

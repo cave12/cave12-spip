@@ -1,0 +1,218 @@
+<BOUCLE_principale(ARTICLES) {id_article}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<meta charset="utf-8">
+<title>[(#SURTITRE|textebrut) - ][(#TITRE|textebrut)]</title>
+[<meta name="description" content="(#TEXTE|couper{150}|attribut_html)" />]
+<meta name="robots" content="noindex,follow" />
+<INCLURE{fond=inc-head}>
+</head>
+
+<body class="page_article" onLoad="systest()">
+<div id="page">
+
+	<INCLURE{fond=inc-entete}{id_rubrique}>
+
+    <div id="contenu" class="contenu" role="main">
+    
+    	<div class="contenu-chapitre">
+   			 <h1>affiches:</h1>
+   			 
+   			 <div class="bloc-affiches">
+   			 
+	   			 <B_aff_harr>
+	   			 	<div class="affiche affiche-pdf">
+	   			 	<ul class="ul-horiz-img">
+	   			 		<BOUCLE_aff_harr(DOCUMENTS mots_liens) {mots.id_mot=1} {extension==pdf}  {0,6}>
+	   			 		<li><a href="#FICHIER">[(#LOGO_DOCUMENT
+	   			 		|image_passe_partout{120,120}
+	   			 		|image_recadre{120,120,center})]</a></li>
+	   			 		</BOUCLE_aff_harr>
+	   			 		</ul>
+	   			 	</div>
+	   			 </B_aff_harr>
+	   			 
+	   			 <p class="affiche-credits">
+	   			 Affiches par Harrisson (<a href="#">voir +</a>)
+	   			 </p>
+   			 </div>
+   			 
+   			 <div class="bloc-affiches">
+   			 
+   			 	 <B_aff_thomas>
+   			 	 	<div class="affiche affiche-pdf">
+   			 	 	<ul class="ul-horiz-img">
+   			 	 		<BOUCLE_aff_thomas(DOCUMENTS mots_liens) {mots.id_mot=2} {0,6}>
+   			 	 		<li><a href="#FICHIER">[(#FICHIER
+   			 	 		|image_passe_partout{120,120}
+   			 	 		|image_recadre{120,120,center})]</a></li>
+   			 	 		</BOUCLE_aff_thomas>
+   			 	 		</ul>
+   			 	 	</div>
+   			 	 </B_aff_thomas>
+   			 	 
+   			 	 <p class="affiche-credits">
+   			 	 Affiches par Thomas Perrodin (<a href="#">voir +</a>)
+   			 	 </p>
+   			 </div>
+   			 
+   		</div>
+ 
+        <div class="contenu-chapitre">
+          <h1> archives photographiques:</h1>
+          <table width="100%" border="0" cellspacing="3" cellpadding="3">
+            <tr>
+              <td width="42%" valign="top"><p><font face="Courier"><a href="/photos/Activity_Center/index.html">activity center</a><br>
+              <a href="/photos/Aki%20Onda_Alan%20Licht/index.html">aki Onda/alan licht</a><br>
+              <a href="/photos/alan_licht/index.html">alan licht</a> <br>
+              <a href="/photos/alessandro/index.html">alessandro bosetti</a><br>
+              <a href="/photos/alexandre_joly/index.html">alexandre joly</a><br>
+              <a href="/photos/Andrea_Parkins/index.html">andrea parkins</a><br>
+              <a href="/photos/Andy%20Moor_Kyriakides/index.html">andy moor/kyriakides</a><br>
+              <a href="/photos/annette_krebs/index.html">annette krebs</a><br>
+              <a href="/photos/Armee_des_Bonbons/index.html">arm&eacute;e des bonbons</a><br>
+              <a href="/photos/asmus_zipo/index.html">asmus tietchens &amp; zipo</a><br>
+              <a href="/photos/bal_populaire/index.html">bal populaire</a><br>
+              <a href="/photos/Blurt/index.html">blurt</a><br>
+              <a href="/photos/Broetzman+Pliakas+wertmueller/index.html">br&ouml;tzman/pliakas/wertm&uuml;ller</a><br>
+              <a href="/photos/brpobr/index.html">brpobr</a><br>
+              <a href="/photos/Chessex/index.html">chessex</a><br>
+              <a href="/photos/Chicken_Legs_Weaver/index.html">chicken legs weaver</a><br>
+              <a href="/photos/cremaster/index.html">cremaster</a><br>
+              damo suzuki &amp; guests<br>
+              <a href="/photos/Daniel_Menche/index.html">daniel menche</a><br>
+              darling<br>
+              <a href="/photos/deflag_hemorragia+Mattin/index.html">deflag haemorrhage - Mattin</a><br>
+              <a href="/photos/dekift/index.html">dekift</a><br>
+              <a href="/photos/Demierre+Barras/index.html">demierre/barras</a><br>
+              <a href="/photos/Donald%20Miller_Tetuzi%20Akiyama/index.html">donald miller/tetuzi akiyama</a><br>
+              <a href="/photos/Dustbreeders+junko/index.html">dustbreeders/junko</a><br>
+              <a href="/photos/Dutton+Charmetant/index.html">dutton/charmetant</a><br>
+              <a href="/photos/Elliott%20Sharp/index.html">elliott sharp</a><br>
+              <a href="/photos/epicerie/index.html">&eacute;picerie de l'agonie</a><br>
+              <a href="/photos/Fages_Barberan_Monteiro/index.html">fages/barberan/monteiro</a><br>
+              <a href="/photos/feeling%20of%20love/index.html">feeling of love</a><br>
+              <a href="/photos/felix_kubin/index.html">felix kubin</a><br>
+              <a href="/photos/Fe-mail/index.html">fe-mail</a><br>
+              <a href="/photos/goth_trad/index.html">goth_trad</a><br>
+              <a href="/photos/Gross_Kawasaki/index.html">gross/kawasaki</a><br>
+              <a href="/photos/Gutbucket/index.html">gutbucket</a><br>
+              <a href="/photos/Guthrie_Gross_Fages/index.html">guthrie/gross/fages</a><br>
+              <a href="/photos/Hautzinger_Sciajno_Capece/index.html">hautzinger/sciajno/capece</a><br>
+              <a href="/photos/howlin%27%20ghost%20proletarians/index.html">howlin' ghost proletarians</a><br>
+              <a href="/photos/Ielasi+Ankersmit/index.html">ielasi/ankersmit</a> <br>
+              <a href="/photos/Infinite%20Livez/index.html">infinite livez</a><br>
+              <a href="/photos/Japanese%20Music%20Festival/index.html">japanese music festival</a><br>
+              <a href="/photos/jeck_schaefer/index.html">jeck/schaefer</a><br>
+              <a href="/photos/noetinger/index.html">j&eacute;r&ocirc;me noetinger</a><br>
+              <a href="/photos/Josephine%20Foster/index.html">josephine foster</a><br>
+              <a href="/photos/mikami/index.html">kan mikami</a><br>
+              <a href="/photos/Karkowski+Piotrowicz+Zaradny/index.html">karkowski/piotrowicz/zaradny</a><br>
+              <a href="/photos/Keith%20Rowe_Guenter%20Mueller/index.html">keith rowe/g&uuml;nter m&uuml;ller</a><br>
+              <a href="/photos/asano/index.html">koji asano</a> <br>
+              <a href="/photos/Kombinat/index.html">kombinat</a><br>
+              <a href="/photos/Birdshow/index.html">birdshow</a><br>
+              <a href="/photos/marchetti/index.html">lionel marchetti/yoko higashi</a> <br>
+              <a href="/photos/Low%20tide%20digitals/index.html">low tide digitals</a><br>
+              <a href="/photos/Lsd%20March/index.html">lsd march</a><br>
+              <a href="/photos/lydia%20Lunch/index.html">lydia Lunch</a><br>
+              <a href="/photos/Magic%20People/index.html">magic people</a><br>
+              <a href="/photos/mattin_Unami_Kober_Kahn/index.html">mattin/taku unami/thomas</a> korber/jason kahn<br>
+              <a href="/photos/Merzbow/index.html">merzbow</a><br>
+              <a href="/photos/mesa%20of%20the%20lost%20women/index.html">mesa of the lost women</a><br>
+              <a href="/photos/Michael%20Thieke/index.html">michael thieke</a><br>
+              <a href="/photos/Mike%20Cooper/index.html">mike cooper</a><br>
+              <a href="/photos/milau/index.html">milau</a><br>
+              <a href="/photos/Mir/index.html">mir</a><br>
+              <a href="/photos/Moeslang_korber_Whitman/index.html">m&ouml;slang/korber/whitman</a><br>
+              <a href="/photos/mxtc/index.html">mxct</a><br>
+              <a href="/photos/N%20collective/index.html">n collective</a><br>
+              <a href="/photos/Natasha%20Anderson/index.html">natasha anderson</a><br>
+              <a href="/photos/Niblock_Ankersmit/index.html">niblock/ankersmit</a><br>
+              <a href="/photos/Noetinger_Eglin/index.html">noetinger /eglin</a><br>
+              <a href="/photos/Noetinger_ericM/index.html">noetinger/ericM</a> </font></p>      </td>
+              <td width="58%" valign="top"><p><font face="Courier">        <a href="/photos/Olive_Bunsho/index.html">olive/bunsho</a><br>
+                    <a href="/photos/Onda+Berrocal+warburton/index.html">aki onda/jac berrocal/dan warburton</a><br>
+                    <a href="/photos/otomo/index.html">otomo yoshihide</a><br>
+                    <a href="/photos/Paolo%20Raposo/index.html">paolo raposo</a><br>
+                    <a href="/photos/pascal%20bathus/index.html">pascal bathus</a><br>
+                    <a href="/photos/Pateras_Baxter_Brown/index.html">pateras/baxter/brown</a><br>
+                    <a href="/photos/pe%20Lang+refat+Zimoun/index.html">pe lang/refat/zimoun</a><br>
+                    <a href="/photos/perlonex/index.html">perlonex</a><br>
+                    <a href="/photos/Perlonex_Palestine/index.html">perlonex/palestine</a><br>
+                    <a href="/photos/Peter%20Rehberg/index.html">peter rehberg</a><br>
+                    <a href="/photos/takashi_fernando/index.html">phroq &amp; takashi tsuda</a> <br>
+                    <a href="/photos/Piotrowicz+Zaradny+Stangl/index.html">piotrowicz/zaradny/stangl</a><br>
+                    <a href="/photos/Pita+Jade/index.html">pita/jade</a><br>
+                    <a href="/photos/Plich%20&%20Pliuch/index.html">plich &amp; pliuch</a><br>
+                    <a href="/photos/psi/index.html">psi</a><br>
+                    <a href="/photos/radu_taku/index.html">radu malfatti/taku sugimoto</a> <br>
+                    <a href="/photos/Rick&Marc/index.html">marc howell/rick brown</a><br>
+                    <a href="/photos/ron%20Anderson%27s%20Pak/index.html">ron Anderson's Pak</a><br>
+                    <a href="/photos/rudolf_eb.er/index.html">rudolf eb.er</a><br>
+                    <a href="/photos/Susan%20Alcorn/index.html">susan alcorn</a><br>
+                    <a href="/photos/swiss_girls/index.html">swiss girls</a><br>
+                    <a href="/photos/synaesthesia/index.html">synaesthesia</a><br>
+                    <a href="/photos/Tetrault+Schick/index.html">t&eacute;trault/schick</a><br>
+                    <a href="/photos/Tetrault+Zach+Gryveland/index.html">t&eacute;trault/zach/gryveland</a><br>
+                    <a href="/photos/the%20same%20girl/index.html">the same girl</a><br>
+                    <a href="/photos/thomas_schunke/index.html">thomas schunke</a><br>
+                    <a href="/photos/Toshimaru%20Nakamura/index.html">toshimaru nakamura</a><br>
+                    <a href="/photos/Trio%20Sowari/index.html">trio sowari</a><br>
+                    <a href="/photos/Tsahar_Cooper%20Moore/index.html">tsahar/cooper moore</a><br>
+                    <a href="/photos/Urabe_Fukuoka/index.html">urabe/fukuoka</a><br>
+                    <a href="/photos/vinz%20Vonlanthen/index.html">vinz vonlanthen</a><br>
+                    <a href="/photos/Yukiko%20Nakamura/index.html">yukiko nakamura</a><br>
+                    <a href="/photos/zu/index.html">zu</a><br>
+                <br>
+                SERIE CARTE BLANCHE:<br>
+                <br>
+                <a href="/photos/may/index.html">carte blanche #15   philip may</a> <br>
+                <a href="/photos/cb_pierre_omer/index.html">carte blanche #?? pierre omer</a><br>
+                <a href="/photos/cb%20letitia/index.html">carte blanche #18 letitia ramos</a><br>
+                <a href="/photos/cb%20Thomas%20Schunke/index.html">carte blanche #19 thomas schunke</a><br>
+                <a href="/photos/cb%20marion/index.html">carte blanche #20 marion innocenzi</a><br>
+                <a href="/photos/cb%20Florian%20Bach/index.html">carte blanche #21 florian bach</a><br>
+                <a href="/photos/cb%20anne%20cardinaud/index.html">carte blanche #25 anne cardinaud</a><br>
+        carte blanche #27 g&eacute;raldine schenkel<br>
+        <a href="/photos/cb_infokiosque/index.html">carte blanche #28 infokiosque</a><br>
+        <a href="/photos/cb_Yvonne_Harder/index.html">carte blanche #29 yvonne harder</a><br>
+        <a href="/photos/cb-Van_Maria/index.html">carte blanche #30 bliscapen van maria</a><br>
+        <a href="/photos/cb_Yann_Marussich/index.html">carte blanche #32 yann marussich</a><br>
+        <a href="/photos/cb_Baron_von_Smock/index.html">carte blanche #33 baron von smock</a><br>
+        <a href="/photos/cb_hero_limite/index.html">carte blanche #34 h&eacute;ro limite</a><br>
+        <a href="/photos/cb_Denis_Schuller/index.html">carte blanche #35 denis schuller</a><br>
+        <br>
+        <br>
+        SERIE CHAMBRE:<br>
+        <br>
+        <a href="/photos/chambre_Jojo/index.html">chambre #1 jojo</a><br>
+        <a href="/photos/chambre_Yves/index.html">chambre #2 yves levasseur</a><br>
+        <a href="/photos/chambre_Christian/index.html">chambre #3 christian graeser</a><br>
+        <br>
+        <br>SERIE DOMINO: <br>
+          <a href="/photos/domino_Cardinaud/index.html">domino #1 anne cardinaud/&hellip;</a><br>
+          <a href="/photos/domino_duthoit/index.html">domino #2 isabelle duthoit/&hellip;</a><br>
+          <br>
+          <br>
+          SERIE RADIO FILLES:<br>
+          <a href="/photos/radio%20Marie%20Jeanson/index.html">radio filles #3 marie jeanson</a><br>
+          <a href="/photos/radio%20Yvonne%20Harder/index.html">radio filles #4 yvonne harder</a><br>
+          <a href="/photos/radio%20Dorothee%20and%20co/index.html">radio filles #5 doroth&eacute;e and co</a><br>
+        <br>
+        <br>
+        <br>
+        <br>
+        </font></p>        </td>
+            </tr>
+          </table>
+          </div>
+		  
+	</div><!--#contenu-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+</div><!--#page-->
+</body>
+</html>
+</BOUCLE_principale>

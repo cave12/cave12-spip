@@ -1,0 +1,51 @@
+<BOUCLE_principale(MOTS) {id_mot}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<meta charset="utf-8">
+<title>[(#TITRE|couper{80}|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+[<meta name="description" content="(#DESCRIPTIF|couper{150}|attribut_html)" />]
+[<link rel="canonical" href="(#URL_MOT|url_absolue)" />]
+<INCLURE{fond=inc-head}>
+[(#REM) Lien vers le flux RSS des articles du mot cle ]
+<link rel="alternate" type="application/rss+xml"[ title="(#TITRE|attribut_html)"] href="[(#URL_PAGE{backend}|parametre_url{id_mot,#ID_MOT})]" />
+</head>
+
+<body class="page_mot mot-1" onLoad="systest()">
+<div id="page" class="page">
+
+	<INCLURE{fond=inc-entete}{id_rubrique}>
+
+
+    <div id="contenu" class="main">
+		[(#REM) Contenu principal : contenu du mot-cle ]
+
+			<div class="cartouche">
+				[(#LOGO_MOT|image_reduire{40,*})]
+				<h1 class="#EDIT{titre}">#TITRE</h1>
+			</div>
+	
+			[<div class="#EDIT{texte} texte">(#TEXTE)</div>]
+	
+	
+			[(#REM) Documents lies au mot-cle ]
+			<B_docs>
+			<div class="menu menu_documents">
+				<h2>Affiches</h2>
+				<ul>
+					<BOUCLE_docs(DOCUMENTS) {mots_liens.id_mot}>
+					<li>[(#LOGO_DOCUMENT{100,100})]</li>
+					</BOUCLE_docs>
+				</ul>
+			</div>
+			</B_docs>
+		
+	
+	</div><!--.main-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+	
+</div><!--.page-->
+</body>
+</html>
+</BOUCLE_principale>

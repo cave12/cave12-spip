@@ -1,0 +1,67 @@
+[(#REM)
+	Un cache plus court, pour la boucle syndic_articles
+]#CACHE{3600}
+<BOUCLE_principale(RUBRIQUES) {id_rubrique}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<meta charset="utf-8">
+<title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+<meta name="description" content="Cave12 - Les archives de [(#TITRE|textebrut)]" />
+<INCLURE{fond=inc-head}>
+<link rel="alternate" type="application/rss+xml" title="<:syndiquer_rubrique:>" href="[(#URL_PAGE{backend}|parametre_url{id_rubrique,#ID_RUBRIQUE})]" />
+<script language="JavaScript">
+<!--
+function popToral(URL) {
+day = new Date();
+id = day.getTime();
+eval("page" + id + " = window.open(URL, '" + id + "', 'toolbar=0,location=0,directories=0,menubar=0,scrollbars=0,status=0,width=700,height=297,resizable=0,left=20,top=400');");
+}
+
+function Protz_schniark(imageType,imageName,imageWidth,imageHeight,alt,posLeft,posTop) {  // v4.01
+	newWindow = window.open("","newWindow","width="+imageWidth+",height="+imageHeight+",scrollbars=no,left="+posLeft+",top="+posTop);
+	newWindow.document.open();
+	newWindow.document.write('<html><title>'+alt+'</title><body bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginheight="0" marginwidth="0" onBlur="self.close()">'); 
+	newWindow.document.write('<img src=\"'+imageName+'\" width='+imageWidth+' height='+imageHeight+' alt=\"'+alt+'\">');
+	newWindow.document.write('</body></html>');
+	newWindow.document.close();
+	newWindow.focus();
+}
+//-->
+</script>
+</head>
+
+<body class="page_rubrique rubrique-3 pre-2009" onLoad="systest()">
+<div id="page">
+
+	<INCLURE{fond=inc-entete}{id_rubrique}>
+
+    <div id="contenu" class="contenu archives">
+    
+    <B_sous_rubriques>
+    	<ul class="top-archive separateurs notc">
+    	    <BOUCLE_sous_rubriques(RUBRIQUES) {id_secteur} {id_rubrique!=3} {par num titre, titre}>
+    	     <li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>[(#TITRE)]</a></li>
+    	    </BOUCLE_sous_rubriques>
+    	</ul>
+    </B_sous_rubriques>
+
+
+		<B_unseul>
+		[(#REM) - Si un seul article, affiche cet article ]
+		<h1 class="entry-title">archives #TITRE</h1>      
+		[<p class="#EDIT{texte} texte entry-content">(#TEXTE|image_reduire{500,0})</p>]
+        <BOUCLE_unseul(ARTICLES){id_rubrique}>
+
+		</BOUCLE_unseul>
+		</B_unseul>
+
+
+	</div><!--#contenu-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+
+</div><!--#page-->
+</body>
+</html>
+</BOUCLE_principale>

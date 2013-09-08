@@ -1,0 +1,64 @@
+[(#REM) rubrique 22 = archives 2012
+	Un cache plus court, pour la boucle syndic_articles
+]#CACHE{3600}
+<BOUCLE_principale(RUBRIQUES) {id_rubrique}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<meta charset="utf-8">
+<title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+[<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />]
+<INCLURE{fond=inc-head}>
+
+<B_canonical><link rel="canonical" href="#URL_SITE_SPIP/<BOUCLE_canonical(spip_urls)
+        {id_objet=#ID_RUBRIQUE}
+        {type=rubrique}
+        {par date}
+        {inverse}
+        {0,1}>#URL</BOUCLE_canonical>" /></B_canonical>
+</head>
+
+<body class="page_rubrique" onLoad="systest()">
+<div id="page">
+	<INCLURE{fond=inc-entete}{id_rubrique}>
+
+    <div id="contenu" class="contenu archives">
+    
+    <B_sous_rubriques>
+    	<ul class="top-archive separateurs notc">
+    	    <BOUCLE_sous_rubriques(RUBRIQUES) {id_secteur} {id_rubrique!=3} {par num titre, titre}>
+	    	    <li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>[(#TITRE)]</a></li>
+    	    </BOUCLE_sous_rubriques>
+    	</ul>
+    </B_sous_rubriques>
+    
+    
+    <!--today: #DATE-->
+         <B_articles>
+         [(#REM) - Si plusieurs articles, affiche la liste des articles ]
+            <h1 class="entry-title">archives #TITRE</h1>      
+            [<p class="#EDIT{texte} texte entry-content">(#TEXTE|image_reduire{500,0})</p>]
+            
+            <ul class="articles">
+         	<BOUCLE_articles(ARTICLES){id_rubrique=1}{annee=2012}{age>0}{par date}>
+                <li>[<strong>(#SURTITRE)</strong><br/>]
+                  <span class="date">[(#DATE|jour)] [(#DATE|nom_mois)]</span> – 
+                   <a href="#URL_ARTICLE">#TITRE</a>
+                </li>
+            </BOUCLE_articles>
+            </ul>
+            [Déjà (#TOTAL_BOUCLE) concerts cette année...]<!-- nombre de concerts: #TOTAL_BOUCLE -->
+        </B_articles>
+        <!-- si aucun résultat -->
+        <h1 class="entry-title">archives #TITRE</h1>  
+        [<p class="#EDIT{texte} texte entry-content">(#TEXTE|image_reduire{500,0})</p>]
+        <//B_articles>
+
+	</div><!--#contenu-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+
+</div><!--#page-->
+</body>
+</html>
+</BOUCLE_principale>

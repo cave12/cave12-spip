@@ -1,0 +1,52 @@
+<BOUCLE_principale(ARTICLES) {id_article}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<title>[(#TITRE|textebrut)][ - (#SURTITRE|textebrut)]</title>
+[<meta name="description" content="(#TEXTE|couper{150}|attribut_html)" />]
+<INCLURE{fond=inc-head}>
+</head>
+
+<body class="page_article concert-series" onLoad="systest()">
+<div id="page">
+
+	<INCLURE{fond=inc-entete}{id_rubrique}>
+	
+	[<h1 style="clear:left" class="title-bloc">(#SURTITRE)</h1>]
+	
+	<BOUCLE_intro(ARTICLES) {id_article=215}>
+		<!-- [<div class="chapo">(#CHAPO)</div>]
+		<div class="texte-intro">[(#TEXTE|image_reduire{500,0})]
+		</div> -->
+	</BOUCLE_intro>
+
+    <div id="contenu" class="programme vevent">
+    		<div id="date" class="art-date[ redac (#DATE_REDAC|jour)] dtstart" title="[(#DATE|affdate{'Y-m-d'})]">
+    			<div class="uppercase center day">[(#DATE_REDAC|nom_jour) - ][(#DATE|nom_jour)]</div>
+    			<div class="uppercase center daynr">[(#DATE_REDAC|jour)-][(#DATE|jour)]</div>
+    			<div class="uppercase center month">[(#DATE|nom_mois)]</div>
+    			<BOUCLE_annee(ARTICLES){id_article}{age>30}><div class="uppercase center year">[(#DATE|annee)]</div></BOUCLE_annee>
+    		</div>
+    		<div id="intro">
+    		[<h1 class="summary">(#TITRE)</h1>]
+			<!-- microformat data -->
+    		<span class="category">Concert</span>
+    		<!-- / microformat data -->
+			[<div id="chapo" class="#EDIT{chapo} description">(#CHAPO)</div>]
+			</div>
+			<div id="programme-txt" class="#EDIT{texte}">
+			[(#TEXTE|image_reduire{500,0})]
+		
+		[(#REM) Gestion du portfolio
+		][(#INCLURE{fond=inc-documents}{id_article}{env})]
+
+        [<div class="notes surlignable"><h2 class="pas_surlignable"><:info_notes:></h2>(#NOTES)</div>]
+			</div>
+			
+	</div><!--#contenu-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+</div><!--#page-->
+</body>
+</html>
+</BOUCLE_principale>

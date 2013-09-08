@@ -1,0 +1,15 @@
+<div id="header" class="header">
+<h1><a rel="start home" href="http://www.cave12.org/">#NOM_SITE_SPIP</a></h1>
+<B_rubriques>
+	<ul role="navigation">
+		<li><a href="http://www.cave12.org/" class="programme">programme</a> | </li>
+		<BOUCLE_rubriques(RUBRIQUES) {racine} {id_rubrique !IN 1,18} {par num titre, titre}>
+		<li><a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>[(#TITRE|couper{80})]</a> |
+		</li>
+	</BOUCLE_rubriques>
+	<li><a href="http://label.cave12.org" class="label-link">label</a> | </li>
+	<li><a href="http://songs-for-sophie.cave12.org" class="songs-for-sophie" style="color:#fff;" target="_blank">songs for sophie</a> | </li>
+	<li><a href="http://www.ville-ge.ch/culture/prixVdG11/laureat_musique.html" class="songs-for-sophie" style="color:#c9c;" target="_blank">prix 2011 de la ville de genève</a></li>
+	</ul>
+</B_rubriques>
+</div><!--#header-->

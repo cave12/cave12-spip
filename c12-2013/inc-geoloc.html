@@ -1,0 +1,25 @@
+[(#REM)
+ <!--
+ Tester:
+ 1: si on est dans le présent/futur
+ 2: si un mot-clé "lieu" existe.
+ -->
+]
+
+
+<BOUCLE_recent(ARTICLES){id_article}{age<1}> 
+
+<B_lieu>
+	<div class="mot-lieu">
+		<BOUCLE_lieu(MOTS) {id_article} {id_groupe=2}>
+		<a href="[(#URL_MOT)]" id="map-loader" class="map-loader" title="Plan d'accès - [(#TITRE)]">Plan d'accès</a>
+		</BOUCLE_lieu>
+	</div>
+</B_lieu>
+
+<//B_lieu>
+
+
+</BOUCLE_recent>
+
+

@@ -1,0 +1,72 @@
+#CACHE{0}
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<meta charset="utf-8">
+<title><:resultats_recherche:> - [(#NOM_SITE_SPIP|textebrut)]</title>
+<INCLURE{fond=inc-head}>
+<meta name="robots" content="none" />
+</head>
+
+<body class="page_recherche" onLoad="systest()">
+<div id="page">
+
+
+	<INCLURE{fond=inc-entete}{id_rubrique}>
+
+    <div id="contenu" class="contenu resultats-recherche">
+    		
+        [<div class="cartouche">
+        				<h1 class="surtitre"><:resultats_recherche:></h1>
+        				<p class="titre">mot - cl&eacute;: &#171;&nbsp;(#RECHERCHE)&nbsp;&#187;</p>
+        			</div>]
+        
+        			<div class="contre-encart">
+        
+        				[(#REM) Articles trouves ]
+        				<B_articles>
+        				<div class="liste-articles">
+        					#ANCRE_PAGINATION
+        					<h2 class="invisible"><:articles:></h2>
+        					<ul>
+        						<BOUCLE_articles(ARTICLES) {recherche} {par points} {inverse} {pagination 20} {id_secteur !IN 18}>
+        						<li class="secteur-#ID_SECTEUR">[<strong>(#SURTITRE)</strong><br/>]
+        						  <span class="date uppercase hidden">[(#DATE|jour)] [(#DATE|nom_mois)] [(#DATE|annee)] – </span>
+        						   <a href="#URL_ARTICLE">#TITRE</a>
+        						</li>
+        						</BOUCLE_articles>
+        					</ul>
+        					[<p class="pagination">(#PAGINATION{page})</p>]
+        				</div>
+        				</B_articles>
+        
+        			</div><!-- fin contre-encart -->
+        
+        			<div class="encart">
+        
+        				[(#REM) Rubriques trouvees ]
+        				<B_rubriques>
+        				<div class="rubriques">
+        					#ANCRE_PAGINATION
+        					<h2 class="menu-titre"><:rubriques:></h2>
+        					[<p class="pagination">(#PAGINATION)</p>]
+        					<ul>
+        						<BOUCLE_rubriques(RUBRIQUES) {recherche} {par points}{inverse} {pagination 5}>
+        						<li><h3 class="titre"><a href="#URL_RUBRIQUE">#TITRE</a></h3></li>
+        						</BOUCLE_rubriques>
+        					</ul>
+        				</div>
+        				</B_rubriques>
+        
+
+         
+        			</div><!-- fin encart -->
+        
+
+	</div><!--#contenu-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+</div><!--#page-->
+</body>
+</html>
+

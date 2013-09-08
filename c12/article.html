@@ -1,0 +1,36 @@
+<BOUCLE_principale(ARTICLES) {id_article}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<meta charset="utf-8">
+<title>[(#SURTITRE|textebrut) - ][(#TITRE|textebrut)]</title>
+[<meta name="description" content="(#TEXTE|couper{150}|attribut_html)" />]
+<INCLURE{fond=inc-head}>
+</head>
+
+<body class="page_article" onLoad="systest()">
+<div id="page">
+
+	<INCLURE{fond=inc-entete}{id_rubrique}>
+
+    <div id="contenu" class="contenu" role="main">
+    		
+        <div class="surlignable">
+        	[<h2 class="#EDIT{surtitre} surtitre">(#SURTITRE)</h2>]
+			[<div id="#EDIT{chapo} chapo">(#CHAPO)</div>]
+				
+			[<p class="#EDIT{texte} texte entry-content">(#TEXTE|image_reduire{500,0})</p>]
+		</div>
+		
+		[(#REM) Gestion du portfolio
+		][(#INCLURE{fond=inc-documents}{id_article}{env})]
+
+        [<div class="notes surlignable"><h2 class="pas_surlignable"><:info_notes:></h2>(#NOTES)</div>]
+
+	</div><!--#contenu-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+</div><!--#page-->
+</body>
+</html>
+</BOUCLE_principale>

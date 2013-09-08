@@ -1,0 +1,70 @@
+[(#REM) rubrique 22 = AFFICHES
+]<BOUCLE_principale(RUBRIQUES) {id_rubrique}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<meta charset="utf-8">
+<title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+[<meta name="description" content="(#TEXTE|couper{150}|attribut_html)" />]
+<INCLURE{fond=inc-head}>
+</head>
+
+<body class="page_article" onLoad="systest()">
+<div id="page">
+
+	<INCLURE{fond=inc-entete}{id_rubrique}>
+
+    <div id="contenu" class="contenu" role="main">
+    
+    	<div class="contenu-chapitre">
+   			 <h1>affiches:</h1>
+   			 
+   			 <div class="bloc-affiches">
+   			 
+	   			 <B_aff_harr>
+	   			 	<div class="affiche affiche-pdf">
+	   			 	<ul class="ul-horiz-img">
+	   			 		<BOUCLE_aff_harr(DOCUMENTS mots_liens) {mots.id_mot=1} {extension==pdf}  {0,6} {!par date}>
+	   			 		<li><a href="/Harrisson[#img(#ID_DOCUMENT)]">[(#LOGO_DOCUMENT
+	   			 		|image_passe_partout{130,180}
+	   			 		|image_recadre{130,180,center})]</a></li>
+	   			 		</BOUCLE_aff_harr>
+	   			 		</ul>
+	   			 	</div>
+	   			 </B_aff_harr>
+	   			 
+	   			 <p class="affiche-credits">
+	   			 Affiches par Harrisson (<a href="/Harrisson">voir +</a>)
+	   			 </p>
+   			 </div>
+   			 
+   			 <div class="bloc-affiches">
+   			 
+   			 	 <B_aff_thomas>
+   			 	 	<div class="affiche affiche-pdf">
+   			 	 	<ul class="ul-horiz-img">
+   			 	 		<BOUCLE_aff_thomas(DOCUMENTS mots_liens) {mots.id_mot=2} {0,6} {!par date}>
+   			 	 		<li><a href="/Thomas-Perrodin[#img(#ID_DOCUMENT)]">[(#FICHIER
+   			 	 		|image_passe_partout{130,180}
+   			 	 		|image_recadre{130,180,center})]</a></li>
+   			 	 		</BOUCLE_aff_thomas>
+   			 	 		</ul>
+   			 	 	</div>
+   			 	 </B_aff_thomas>
+   			 	 
+   			 	 <p class="affiche-credits">
+   			 	 Affiches par Thomas Perrodin (<a href="/Thomas-Perrodin">voir +</a>)
+   			 	 </p>
+   			 </div>
+   			 
+   		</div>
+ 
+        
+		  
+	</div><!--#contenu-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+</div><!--#page-->
+</body>
+</html>
+</BOUCLE_principale>

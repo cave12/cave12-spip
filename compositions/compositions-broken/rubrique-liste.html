@@ -1,0 +1,88 @@
+[(#REM)
+	Un cache plus court, pour la boucle syndic_articles
+]
+<BOUCLE_principale(RUBRIQUES) {id_rubrique}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+<INCLURE{fond=inc-meta}{skel=#SQUELETTE}>
+[(#REM) Lien vers le flux RSS des articles la rubrique ]
+<link rel="alternate" type="application/rss+xml" title="<:syndiquer_rubrique:>" href="[(#URL_PAGE{backend}|parametre_url{id_rubrique,#ID_RUBRIQUE})]" />
+</head><body class="page_rubrique">
+
+<INCLURE{fond=inc-header}{skel=#SQUELETTE}>
+
+<div id="colmask">
+	<div id="colmid">
+		<div id="colright">
+			<div id="col1wrap">
+				<div id="col1pad">
+					<div id="col1"[ class="(#TITRE|textebrut)"]>
+					
+						<h1 class="entry-title">#TITRE</h1>
+						    
+						    	[<div class="surlignable"><div class="#EDIT{texte} texte entry-content">(#TEXTE|image_reduire{500,400})</div></div>]
+						    	
+						    <ul class="liste-articles">
+						    
+						    <B_events>
+						    	<BOUCLE_events(EVENEMENTS){id_rubrique}{par date}{inverse}{age<3}{statut=publie}>
+						    		<BOUCLE_eventarticle(ARTICLES){id_article}{doublons}>
+						    			<li class="liste-articles-item groupe actuel hoverable"><a href="#URL_ARTICLE" class="hoverable">
+						    		<INCLURE{fond=inc-various/inc-event-date-short,id_article,date}>
+						    		<INCLURE{fond=inc-various/inc-logo-intro-small,id_article,titre,soustitre,texte,descriptif}>
+						    				</a></li>
+						    		</BOUCLE_eventarticle>
+						    	</BOUCLE_events>
+						    </B_events>
+						    <!-- no events -->
+						    <//B_events>
+						 
+						 <B_articles>   
+						 	<BOUCLE_articles(ARTICLES){id_rubrique}{par date}{inverse}{doublons}>
+						        <li class="liste-articles-item hoverable groupe"><a href="#URL_ARTICLE" class="hoverable">	              
+						 <INCLURE{fond=inc-various/inc-event-date-short,id_article,date}>
+						 <INCLURE{fond=inc-various/inc-logo-intro-small,id_article,titre,soustitre,texte,descriptif}>
+						        	</a>
+						            </li>
+						    </BOUCLE_articles>
+						    </ul>
+						</B_articles>
+						<!-- si aucun résultat -->
+						<h1 class="entry-title">archives #TITRE</h1>  
+						[<p class="#EDIT{texte} texte entry-content">(#TEXTE|image_reduire{500,0})</p>]
+						<//B_articles>
+								
+						<!-- Column 1 end -->
+					</div> <!--#col1-->
+				</div> <!--#col1pad-->
+			</div> <!--#col1wrap-->
+			
+			<div id="col2">
+			<!-- Column 2 start -->
+				[(#REM) Menu de navigation par rubriques ]
+				<INCLURE{fond=inc-rubriques}{id_rubrique}>	
+				#FORMULAIRE_RECHERCHE
+			<!-- Column 2 end -->
+			</div>
+			
+			[(#REM) Colonne 3 ]
+			<div id="col3">
+				<INCLURE{fond=inc-sidebar/inc-col3affiche}{id_rubrique}{skel=#SQUELETTE}>
+				<INCLURE{fond=inc-sidebar/inc-col3video}>
+			<!-- Column 3 end -->
+			</div>
+	
+		</div> <!--colright-->
+	</div> <!--colmid-->
+</div> <!--colmask-->
+
+<div id="footer">
+	[(#REM) Pied de page ]
+	<INCLURE{fond=inc-pied}{skel=#SQUELETTE}>
+</div>
+<!-- this:rubrique-liste.html -->
+</body>
+</html>
+</BOUCLE_principale>

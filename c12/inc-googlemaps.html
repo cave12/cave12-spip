@@ -1,0 +1,22 @@
+[(#REM) Affichage des cartes Google 
+]
+
+<B_maps>
+<BOUCLE_maps(MOTS){id_mot}{id_groupe=2}>
+
+	<style type="text/css">
+	      #map_canvas { 
+		      width:  600px;
+		      height: 400px;
+		      border: 2px solid #888;
+	       }
+	    </style>
+	
+	<script type="text/javascript">
+	window.onload = loadGmapScript;
+	</script>
+	
+	<div id="map_canvas"></div>
+	
+</BOUCLE_maps>
+</B_maps>

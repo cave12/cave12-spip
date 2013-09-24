@@ -13,6 +13,7 @@
 <body class="page_sommaire"  onLoad="systest()">
 <div id="page">
 <INCLURE{fond=inc-entete}{id_rubrique}>
+
 <div id="contenu" class="contenu vcalendar" role="main">
 	<div id="propaganda">
 		<div id="titre-sommaire" class="titre-sommaire notc">
@@ -60,10 +61,6 @@
 		</B_articles_recents>
 				 
 		
-
-		<BOUCLE_sommaire_bottom(ARTICLES) {id_article=28}>
-		[<div class="#EDIT{texte} sommaire">(#TEXTE)</div>]
-		</BOUCLE_sommaire_bottom>
 </div><!--#contenu-->
 	
 <INCLURE{fond=inc-pied}{id_rubrique}>

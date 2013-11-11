@@ -4,6 +4,7 @@
 	http://www.cave12.org/local/cache-css/9c707492f046e867bbd75c4ca2285077.css
 	http://www.cave12.org/squelettes/c12/cssC12-120704.min.css
 	http://www.cave12.org/squelettes/c12/cssC12-120708b.min.css
+	http://www.cave12.org/local/cache-css/5dde2bbe0eecb59d4ff92a49b748a0f0.css
 */
 
 /*
@@ -732,6 +733,22 @@ ul.top-archive li {display:inline;}
 
 .resultats-recherche .secteur-3 {
 	font-size: 120%;
+}
+
+/* @end */
+
+/* @group Ouverture 2013 */
+
+body.inauguration-2013 {
+	background: #fff;
+}
+
+.inauguration-2013 .contenu {
+	text-align: center;
+}
+.lien-inauguration img {
+	max-width: 100%;
+	height: auto;
 }
 
 /* @end */

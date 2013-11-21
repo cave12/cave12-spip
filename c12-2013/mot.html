@@ -11,7 +11,7 @@
 <link rel="alternate" type="application/rss+xml"[ title="(#TITRE|attribut_html)"] href="[(#URL_PAGE{backend}|parametre_url{id_mot,#ID_MOT})]" />
 </head>
 
-<body class="page_mot" onLoad="systest()">
+<body class="page_mot">
 <div id="page" class="page">
 
 	<INCLURE{fond=inc-entete}{id_rubrique}>
@@ -34,7 +34,7 @@
 				[(#REM) OPTION 1: Affichage des cartes Google ]
 				
 				<B_maps>
-				<BOUCLE_maps(MOTS){id_mot}{id_groupe=2}>
+				<BOUCLE_maps(MOTS){id_mot}{type=Lieux}>
 				
 					<script type="text/javascript">
 					window.onload = loadGmapScriptLocal;
@@ -48,7 +48,7 @@
 			[(#REM) OPTION 2: Affichage des fichiers attachés ]
 			
 		<B_mot>
-		<BOUCLE_mot(MOTS){id_mot}{id_groupe=1}>
+		<BOUCLE_mot(MOTS){id_mot}{type=Affiche par}>
 			
 			<div class="menu menu_documents">
 				<h2 class="notc">Affiches</h2>
@@ -59,7 +59,11 @@
 							<a href="#FICHIER" [name="img(#ID_DOCUMENT)"]>[(#LOGO_DOCUMENT{400,400})]</a>,
 							<a href="#FICHIER" [name="img(#ID_DOCUMENT)"]>[(#FICHIER|image_reduire{400,400})]</a>})]			
 						<BOUCLE_article_lie(ARTICLES) {id_document}>
-							<div class="affiche-meta"><a href="#URL_ARTICLE" class="lien-article">#TITRE</a></div>
+							<div class="affiche-meta">
+								<a href="#URL_ARTICLE" class="lien-article">#TITRE</a>
+								<div><span class="date">[(#DATE|jour)] [(#DATE|nom_mois)] [(#DATE|annee)]</span></div>
+							</div>
+							
 						</BOUCLE_article_lie>
 					</li>
 					</BOUCLE_imgs>
@@ -70,6 +74,24 @@
 		</BOUCLE_mot>
 		</B_mot>
 		
+		[(#REM) OPTION 3: Affichage des pages artistes ]
+		
+		<B_artist>
+		<BOUCLE_artist(MOTS){id_mot}{id_groupe=3}>
+							
+				<B_article_artistes>
+				
+				<h2>Concerts</h2>
+					<BOUCLE_article_artistes(ARTICLES){mots_liens.id_mot}{!par date}>
+						<div class="liste-concerts max-width">
+							<a href="#URL_ARTICLE" class="lien-article">#TITRE</a>
+							<div><span class="date">[(#DATE|jour)] [(#DATE|nom_mois)] [(#DATE|annee)]</span></div>
+						</div>
+					</BOUCLE_article_artistes>
+				</B_article_artistes>
+								
+		</BOUCLE_artist>
+		</B_artist>
 		
 	
 	</div><!--.main-->

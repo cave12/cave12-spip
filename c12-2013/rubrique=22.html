@@ -9,7 +9,7 @@
 <INCLURE{fond=inc-head}>
 </head>
 
-<body class="page_article" onLoad="systest()">
+<body class="page_article">
 <div id="page">
 
 	<INCLURE{fond=inc-entete}{id_rubrique}>
@@ -24,7 +24,7 @@
 	   			 <B_aff_harr>
 	   			 	<div class="affiche affiche-pdf">
 	   			 	<ul class="ul-horiz-img">
-	   			 		<BOUCLE_aff_harr(DOCUMENTS mots_liens) {mots.id_mot=1} {extension==pdf}  {0,6} {!par date}>
+	   			 		<BOUCLE_aff_harr(DOCUMENTS mots_liens) {mots.titre=Harrisson} {extension==pdf}  {0,6} {!par date}>
 	   			 		<li><a href="/Harrisson[#img(#ID_DOCUMENT)]">[(#LOGO_DOCUMENT
 	   			 		|image_passe_partout{130,180}
 	   			 		|image_recadre{130,180,center})]</a></li>
@@ -43,7 +43,7 @@
    			 	 <B_aff_thomas>
    			 	 	<div class="affiche affiche-pdf">
    			 	 	<ul class="ul-horiz-img">
-   			 	 		<BOUCLE_aff_thomas(DOCUMENTS mots_liens) {mots.id_mot=2} {0,6} {!par date}>
+   			 	 		<BOUCLE_aff_thomas(DOCUMENTS mots_liens) {mots.titre=Thomas Perrodin} {0,6} {!par date}>
    			 	 		<li><a href="/Thomas-Perrodin[#img(#ID_DOCUMENT)]">[(#FICHIER
    			 	 		|image_passe_partout{130,180}
    			 	 		|image_recadre{130,180,center})]</a></li>

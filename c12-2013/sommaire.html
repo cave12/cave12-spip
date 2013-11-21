@@ -10,31 +10,31 @@
 [<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|textebrut)" />]
 <INCLURE{fond=inc-head}{id_rubrique}>
 </head>
-<body class="page_sommaire"  onLoad="systest()">
+<body class="page_sommaire">
 <div id="page">
-<INCLURE{fond=inc-entete}{id_rubrique}>
+<INCLURE{fond=inc-entete}{id_rubrique}{contexte=sommaire}>
 
 <div id="contenu" class="contenu vcalendar" role="main">
-	<div id="propaganda">
+	<div id="propaganda" class="propaganda">
 		<div id="titre-sommaire" class="titre-sommaire notc">
 			<BOUCLE_sommaire_top(ARTICLES) {id_article=25}>
-			[(#TEXTE|inserer_attribut{class,programme})]
+			<h3 class="titre-sommaire-h3">[(#TEXTE|textebrut)]</h3>
 			</BOUCLE_sommaire_top>
 		</div>	
-		<div id="programme-pdf" class="inco">
+		<div id="programme-pdf" class="programme-pdf prop-item">
 			<BOUCLE_progr_pdf(DOCUMENTS){id_rubrique=1}{par date}{inverse}{extension==pdf}{0,1}>
-			[<a href="(#URL_DOCUMENT)" title="<:bouton_telecharger:>[ &ndash; (#TAILLE|taille_en_octets)]" type="#MIME_TYPE"  target="_blank">.pdf</a>]
+			[<a href="(#URL_DOCUMENT)" title="<:bouton_telecharger:>[ &ndash; (#TAILLE|taille_en_octets)]" type="#MIME_TYPE"  target="_blank" class="prop-item-label">.pdf</a>]
 			</BOUCLE_progr_pdf>	
 		</div>
 		
-		<div id="mailing-list">
-			<h3 class="inco">mailing-liste:</h3>
+		<div id="mailing-list" class="newsletter-form prop-item">
+			<label for="email" class="inco prop-item-label">Newsletter</label>
 			<form action="http://admin.cave12.org/mail/mailinglist_process.php" method='post' name='formulaire' class="inco">
 			<input type='hidden' name='maillist' value="aW5mb3JtYXppb25AY2F2ZTEyLm9yZw==" />
-			<input type='text' name='email' placeholder='votre email' class="form-text inco" />
-			<input type='hidden' name='action' value="add" />
-			<input type='hidden' name='url' value="http://cave12.org/spip.php?article26" />
-			<input type='submit' name='add' value="s’abonner" class="button inco" />
+			<input type='email' id="email" name='email' placeholder='votre email' class="form-text inco" required>
+			<input type='hidden' name='action' value="add">
+			<input type='hidden' name='url' value="http://cave12.org/spip.php?article26">
+			<input type='submit' name='add' value="s’abonner" class="button inco">
 			</form>
 		</div>
 		
@@ -45,7 +45,7 @@
 				<div class="art-box vevent<BOUCLE_recent(ARTICLES){id_article}{age<1}{age>0}> recent</BOUCLE_recent><BOUCLE_demain(ARTICLES){id_article}{age<=0}{age>-5}> demain</BOUCLE_demain><BOUCLE_futur(ARTICLES){id_article}{age<=-5}> futur</BOUCLE_futur>">
 					<div class="art-date[ redac (#DATE_REDAC|jour)] dtstart" role="article">
 						<a href="#URL_ARTICLE" rel="bookmark" class="value-title" title="[(#DATE|affdate{'Y-m-d'})]"><div class="uppercase center day">[(#DATE|nom_jour)]</div>
-						<div class="uppercase center daynr">[(#DATE_REDAC|jour)-][(#DATE|jour)]</div>
+						<div class="center daynr">[(#DATE_REDAC|jour)-][(#DATE|jour)]</div>
 						<div class="uppercase center month">[(#DATE|nom_mois)]</div></a>
 					</div><!-- .art-date -->
 					<!-- microformat data -->

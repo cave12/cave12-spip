@@ -29,6 +29,24 @@ $(".hide-hide-action").click(function(){
  	$(".instant-show").hide();
  	return false;
  });
+
+
+
+// code pour formulaire mailing-liste:
+
+function clearForm() { document.formulaire.email.value = "nom@adresse";
+document.formulaire.email.select();}
+
+// show mailing-list form
+
+
+$("label.prop-item-label").click(function(){
+	$(".newsletter-form .form-text,.newsletter-form .button").show();
+	$(".newsletter-form .form-text").focus();
+	$(".newsletter-form").addClass("form-padding");
+//	return false;
+});
+
  
  
 // AJAX loader for maps 
@@ -78,23 +96,6 @@ $('#map-loader').toggle(function() {
  
 }); // end Document Ready 
 
-
-// code pour formulaire mailing-liste:
-
-function clearForm() { document.formulaire.email.value = "nom@adresse";
-document.formulaire.email.select();}
-
-
-// Dection du systeme d'exploitation
-
-function systest() {
-var OSName="Unknown OS";
-if (navigator.appVersion.indexOf("Win")!=-1) OSName="Windows";
-if (OSName == "Windows") {
-	//alert("Working");
-	document.body.style.fontFamily = "'Courier New',Consolas,Courier,monospace,sans-serif";
-	}
-}
 
 // Google Maps Function
 

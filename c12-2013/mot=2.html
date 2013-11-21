@@ -11,7 +11,7 @@
 <link rel="alternate" type="application/rss+xml"[ title="(#TITRE|attribut_html)"] href="[(#URL_PAGE{backend}|parametre_url{id_mot,#ID_MOT})]" />
 </head>
 
-<body class="page_mot mot-2" onLoad="systest()">
+<body class="page_mot mot-2">
 <div id="page" class="page">
 
 	<INCLURE{fond=inc-entete}{id_rubrique}>
@@ -23,6 +23,7 @@
 			<div class="cartouche">
 				[(#LOGO_MOT|image_reduire{40,*})]
 				<h1 class="#EDIT{titre}">#TITRE</h1>
+				<p>date: </p>
 			</div>
 	
 			[<div class="#EDIT{texte} texte">(#TEXTE)</div>]

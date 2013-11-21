@@ -1,19 +1,19 @@
 <div id="pied" class="pied bloc-navig">
 
 	
-	<ul role="navigation" class="navigation">
-		<li><a href="#URL_SITE_SPIP" class="programme">programme</a> </li>
+	<ul id="navigation" role="navigation" class="navigation navigation-top">
+		<li class="li-first"><a href="#URL_SITE_SPIP" class="programme">programme</a> </li>
 		
 		[(#REM) <!-- 
 				Groupe 1:  
 				* Programme = hardcoded
 				* Affiches = 22
-				* Artistes = 25
+				* Artistes = 24 on beta)
 				* Label = hardcoded
 				
 				--> ]
 	
-	<BOUCLE_rubr1(RUBRIQUES) {racine} {id_rubrique IN 22,25} {par num titre, titre}>
+	<BOUCLE_rubr1(RUBRIQUES) {racine} {id_rubrique IN 22,24} {par num titre, titre}>
 		<li>
 			<a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>[(#TITRE|couper{80})]</a>
 		</li>
@@ -34,7 +34,7 @@
 			
 			--> ]
 	
-	<BOUCLE_rubr2(RUBRIQUES) {racine} {id_rubrique IN 3,4,24} {par num titre, titre}>
+	<BOUCLE_rubr2(RUBRIQUES) {racine} {id_rubrique IN 3,4} {par num titre, titre}>
 		<li>
 			<a href="#URL_RUBRIQUE"[ class="(#EXPOSE)"]>[(#TITRE|couper{80})]</a>
 		</li>
@@ -63,7 +63,7 @@
 	
 	<li><a href="http://rss.cave12.org/cave12" title="S'abonner au RSS" rel="alternate" type="application/rss+xml">RSS</a></li>
 	<li><a href="webcal://cave12.org/cave12.ics" title="S'abonner au calendrier">ical</a></li>
-	<li><INCLURE{fond=inc-recherche}></li>
+	<li class="nav-search"><INCLURE{fond=inc-recherche}></li>
 	</ul>
 
 

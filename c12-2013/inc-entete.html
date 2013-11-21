@@ -3,31 +3,35 @@
 
 [(#REM) <!-- Afficher les Dates de concert actuelles! --> ]
 
-<BOUCLE_article_courant(ARTICLES){id_article}>
-		<style>.concert-no-#ID_ARTICLE a {
-			background: #ce0000;
-			color:#fff;
-			box-shadow: inset 0 0 8px rgb(122, 11, 11);
-		}
-		.concert-no-#ID_ARTICLE a:hover {
-			color: #fff;
-		}
-		
-		</style>
-</BOUCLE_article_courant>
-
-<BOUCLE_retest_age(ARTICLES){id_rubrique=1}{age<1}> 
-			
-			<ul class="mini-cal">
-			
-				<BOUCLE_concerts_pre(ARTICLES){id_rubrique=1}{age<1}{par date}{0,5}>
-					<li class="mini-cal-box concert-no-#ID_ARTICLE">
-						<a href="#URL_ARTICLE" title="[(#TITRE)]">
-						[(#DATE_REDAC|jour)-][(#DATE|jour)]</a></li>
-				</BOUCLE_concerts_pre>
-						
-			</ul>
-			
+<B_retest_age>
+<BOUCLE_retest_age(ARTICLES){id_article}{age<1}> 
 </BOUCLE_retest_age>
+
+		<BOUCLE_article_courant(ARTICLES){id_article}>
+				<style>.concert-no-#ID_ARTICLE a {
+					background: #ce0000;
+					color:#fff;
+					box-shadow: inset 0 0 8px rgb(122, 11, 11);
+				}
+				.concert-no-#ID_ARTICLE a:hover {
+					color: #fff;
+				}
+				
+				</style>
+		</BOUCLE_article_courant>
+		
+		<INCLURE{fond=inc-minical}>
+		
+</B_retest_age>
+
+[(#ENV{contexte}|=={sommaire}|?{
+	[(#INCLURE{fond=inc-minical})],
+	''
+})]
+			
+<div class="menu-link">
+	<a href="#navigation">menu</a>
+</div>
+
 
 </div><!--#header-->

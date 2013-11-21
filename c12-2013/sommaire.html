@@ -9,61 +9,17 @@
 <title>[(#NOM_SITE_SPIP|textebrut)] - salle de concert nomade - genève</title>
 [<meta name="description" content="(#DESCRIPTIF_SITE_SPIP|couper{150}|textebrut)" />]
 <INCLURE{fond=inc-head}{id_rubrique}>
+<style>html {background: #fff;}</style>
 </head>
-<body class="page_sommaire">
+<body class="page_sommaire inauguration-2013"  onLoad="systest()">
 <div id="page">
-<INCLURE{fond=inc-entete}{id_rubrique}{contexte=sommaire}>
 
 <div id="contenu" class="contenu vcalendar" role="main">
-	<div id="propaganda" class="propaganda">
-		<div id="titre-sommaire" class="titre-sommaire notc">
-			<BOUCLE_sommaire_top(ARTICLES) {id_article=25}>
-			<h3 class="titre-sommaire-h3">[(#TEXTE|textebrut)]</h3>
-			</BOUCLE_sommaire_top>
-		</div>	
-		<div id="programme-pdf" class="programme-pdf prop-item">
-			<BOUCLE_progr_pdf(DOCUMENTS){id_rubrique=1}{par date}{inverse}{extension==pdf}{0,1}>
-			[<a href="(#URL_DOCUMENT)" title="<:bouton_telecharger:>[ &ndash; (#TAILLE|taille_en_octets)]" type="#MIME_TYPE"  target="_blank" class="prop-item-label">.pdf</a>]
-			</BOUCLE_progr_pdf>	
-		</div>
-		
-		<div id="mailing-list" class="newsletter-form prop-item">
-			<label for="email" class="inco prop-item-label">Newsletter</label>
-			<form action="http://admin.cave12.org/mail/mailinglist_process.php" method='post' name='formulaire' class="inco">
-			<input type='hidden' name='maillist' value="aW5mb3JtYXppb25AY2F2ZTEyLm9yZw==" />
-			<input type='email' id="email" name='email' placeholder='votre email' class="form-text inco" required>
-			<input type='hidden' name='action' value="add">
-			<input type='hidden' name='url' value="http://cave12.org/spip.php?article26">
-			<input type='submit' name='add' value="s’abonner" class="button inco">
-			</form>
-		</div>
-		
-	</div><!--#propaganda-->
 	
-		<B_articles_recents>
-				<BOUCLE_articles_recents(ARTICLES) {id_rubrique=1}{par date}{age<1}>
-				<div class="art-box vevent<BOUCLE_recent(ARTICLES){id_article}{age<1}{age>0}> recent</BOUCLE_recent><BOUCLE_demain(ARTICLES){id_article}{age<=0}{age>-5}> demain</BOUCLE_demain><BOUCLE_futur(ARTICLES){id_article}{age<=-5}> futur</BOUCLE_futur>">
-					<div class="art-date[ redac (#DATE_REDAC|jour)] dtstart" role="article">
-						<a href="#URL_ARTICLE" rel="bookmark" class="value-title" title="[(#DATE|affdate{'Y-m-d'})]"><div class="uppercase center day">[(#DATE|nom_jour)]</div>
-						<div class="center daynr">[(#DATE_REDAC|jour)-][(#DATE|jour)]</div>
-						<div class="uppercase center month">[(#DATE|nom_mois)]</div></a>
-					</div><!-- .art-date -->
-					<!-- microformat data -->
-						[<span class="summary">(#TITRE)</span>]
-						<span class="category">Concert</span>
-					<!-- / microformat data -->
-					<div class="art-sommaire">
-						<h2 class="#EDIT{surtitre} entry-title"><a href="#URL_ARTICLE" rel="bookmark">#SURTITRE</a></h2>
-						[<div class="#EDIT{chapo} introduction entry-content"><a href="#URL_ARTICLE" rel="bookmark" class="url description">(#CHAPO)</a></div>]
-					</div>
-				</div>
-				</BOUCLE_articles_recents>
-		</B_articles_recents>
-				 
+		<a href="/programme" class="lien-inauguration"><img src="http://www.cave12.org/IMG/png/21.11_inauguration_800px.png" alt="21/11 inauguration de la nouvelle cave"></a>
 		
 </div><!--#contenu-->
 	
-<INCLURE{fond=inc-pied}{id_rubrique}>
 	
 </div><!--#page-->
 </body>

@@ -976,6 +976,7 @@ ul.navigation-top {
 	padding: 0.1em 0.5em 0.3em 0.5em;
 	float: left;
 	margin-right: 0.4em;
+	margin-bottom: 0.4em;
 /*	clear: left;*/
 	}
 	
@@ -1097,6 +1098,7 @@ and (min-width : 740px) {
 			border: 0px;
 			padding: 0;
 			margin-right: 0;
+			margin-bottom: 0;
 			clear: left;
 			}
 	

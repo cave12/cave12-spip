@@ -1,0 +1,104 @@
+[(#REM) rubrique 24 = liste des articles
+	Un cache plus long - 100'800 = 48h
+]#CACHE{100800}
+<BOUCLE_principale(RUBRIQUES) {id_rubrique}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<meta charset="utf-8">
+<title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+[<meta name="description" content="(#INTRODUCTION{150}|attribut_html)" />]
+<INCLURE{fond=inc-head}>
+
+<B_canonical><link rel="canonical" href="#URL_SITE_SPIP/<BOUCLE_canonical(spip_urls)
+        {id_objet=#ID_RUBRIQUE}
+        {type=rubrique}
+        {par date}
+        {inverse}
+        {0,1}>#URL</BOUCLE_canonical>" /></B_canonical>
+</head>
+
+<body class="page_rubrique page_artistes">
+<div id="page">
+	<INCLURE{fond=inc-entete}{id_rubrique}>
+
+    <div id="contenu" class="contenu">
+    
+    <B_articles>
+     	<BOUCLE_articles(ARTICLES){id_rubrique}>
+            <h1 class="entry-title">#TITRE</h1>
+            [<p class="#EDIT{texte} texte entry-content">(#TEXTE|image_reduire{500,0})</p>]
+        </BOUCLE_articles>
+    </B_articles>
+    
+	    <ul class="toc-alphabetic ul-unstyled ul-horiz">
+	    	<li class="link-A"><a href="#noms-A">A</a></li>
+	    	<li class="link-B"><a href="#noms-B">B</a></li>
+	    	<li class="link-C"><a href="#noms-C">C</a></li>
+	    	<li class="link-D"><a href="#noms-D">D</a></li>
+	    	<li class="link-E"><a href="#noms-E">E</a></li>
+	    	<li class="link-F"><a href="#noms-F">F</a></li>
+	    	<li class="link-G"><a href="#noms-G">G</a></li>
+	    	<li class="link-H"><a href="#noms-H">H</a></li>
+	    	<li class="link-I"><a href="#noms-I">I</a></li>
+	    	<li class="link-J"><a href="#noms-J">J</a></li>
+	    	<li class="link-K"><a href="#noms-K">K</a></li>
+	    	<li class="link-L"><a href="#noms-L">L</a></li>
+	    	<li class="link-M"><a href="#noms-M">M</a></li>
+	    	<li class="link-N"><a href="#noms-N">N</a></li>
+	    	<li class="link-O"><a href="#noms-O">O</a></li>
+	    	<li class="link-P"><a href="#noms-P">P</a></li>
+	    	<li class="link-Q"><a href="#noms-Q">Q</a></li>
+	    	<li class="link-R"><a href="#noms-R">R</a></li>
+	    	<li class="link-S"><a href="#noms-S">S</a></li>
+	    	<li class="link-T"><a href="#noms-T">T</a></li>
+	    	<li class="link-U"><a href="#noms-U">U</a></li>
+	    	<li class="link-V"><a href="#noms-V">V</a></li>
+	    	<li class="link-W"><a href="#noms-W">W</a></li>
+	    	<li class="link-X"><a href="#noms-X">X</a></li>
+	    	<li class="link-Y"><a href="#noms-Y">Y</a></li>
+	    	<li class="link-Z"><a href="#noms-Z">Z</a></li>
+	    </ul>
+    
+    [(#SET{nom_initiale,''})]
+    [(#SET{prev_initiale,''})]
+    
+    [(#REM) groupe de mots 3 = Artistes]
+    
+    <div class="placeholder">
+    <BOUCLE_mots(MOTS){id_groupe=3}{par titre}>
+    		[(#REM) Set variable : first letter of title ]
+    	[(#SET{nom_initiale,[(#TITRE|mb_substr{0, 1}|strtoupper)]})]
+    	
+    		[(#REM) Test variables ]
+    	[(#GET{nom_initiale}|=={#GET{prev_initiale}}|?{
+    		— ,
+    		<span id="noms-[(#GET{nom_initiale})]"></span></div>
+    		<h2 class="toc-anchor">[(#GET{nom_initiale})]</h2>
+    		<div class="toc-list">
+    	})]
+    	
+    	[(#REM) Test for linked articles ]
+    	
+    		<B_linked_articles>
+    			<a href="#URL_MOT" class="lien-mot">#TITRE</a>
+    		 	<BOUCLE_linked_articles(ARTICLES){mots_liens.id_mot}{!par date}>
+    		  </BOUCLE_linked_articles>
+    		</B_linked_articles>
+    			#TITRE
+    		<//B_linked_articles>
+    	
+    		[(#REM) Set variable : prev_initiale = nom_initiale ]
+    	[(#SET{prev_initiale,[(#GET{nom_initiale})]})]
+    	
+    </BOUCLE_mots>
+    </div>
+    
+	</div><!--#contenu-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+
+</div><!--#page-->
+</body>
+</html>
+</BOUCLE_principale>

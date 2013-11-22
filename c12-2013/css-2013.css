@@ -1051,6 +1051,23 @@ padding-right: 0px !important;}
 .contenu .surlignable .form-text,
 .contenu .surlignable .button {font-size:1.1em}
 
+
+/* @group Ouverture 2013 */
+
+body.inauguration-2013 {
+	background: #fff;
+}
+.inauguration-2013 .contenu {
+	text-align: center;
+	padding-left: 0px;
+}
+.lien-inauguration img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* @end */
+
 /* @group Media Queries */
 
 /* Smartphones (landscape) ----------- */
@@ -1079,7 +1096,7 @@ and (min-width : 740px) {
 		}
 		
 		.mini-cal {
-			margin-top: 0.4em;
+			margin-top: 0.3em;
 /*			margin-left: 6em;*/
 			padding-right: 1em;
 		}
@@ -1113,6 +1130,7 @@ and (min-width : 740px) {
 		.contenu .art-box .art-date {
 			display: block;	
 		}
+		
 		.contenu div.art-sommaire {
 			width: 60%;
 			left: 20px;
@@ -1129,7 +1147,9 @@ and (min-width : 740px) {
 		.contenu .intro {
 			padding-left: 9em;
 		}
-		
+		.intro-block {
+			min-height: 10em;
+		}
 		.programme-txt {
 		 max-width: 35em;	
 		}
@@ -1225,6 +1245,10 @@ and (min-width : 1024px) {
 		.contenu div.art-sommaire {
 			width: 80%;
 		}
+		
+		.page_artistes .contenu {
+			width: 70%;	
+		}
 }
 
 /* Smartphones (landscape) ----------- */
@@ -1253,6 +1277,10 @@ and (min-width : 1200px) {
 		
 		.contenu #chapo {	
 			font-size: 1.1em;
+		}
+		
+		.page_artistes .contenu {
+			width: 60%;	
 		}
 		
 }

@@ -1,0 +1,38 @@
+[(#REM) rubrique 4 = PHOTOS
+]<BOUCLE_principale(RUBRIQUES) {id_rubrique}>
+<!DOCTYPE html>
+<html lang="#LANG">
+<head>
+<meta charset="utf-8">
+<title>[(#TITRE|textebrut) - ][(#NOM_SITE_SPIP|textebrut)]</title>
+[<meta name="description" content="(#TEXTE|couper{150}|attribut_html)" />]
+<INCLURE{fond=inc-head}>
+</head>
+
+<body class="page_article">
+<div id="page">
+
+	<INCLURE{fond=inc-entete}{id_rubrique}>
+
+    <div id="contenu" class="contenu" role="main">
+    
+    		
+    		<B_imgs>
+    		
+    		<BOUCLE_imgs(DOCUMENTS mots_liens){!mots.type=Affiche par}{extension==jpg}{0,3}{!par date}>
+    		
+    					<div class="photo">
+    					
+    					<a href="#FICHIER" [name="img(#ID_DOCUMENT)"]>[(#FICHIER|image_reduire{400,300})]</a>	
+    					</div>
+    		
+    		</BOUCLE_imgs>
+    		
+		  
+	</div><!--#contenu-->
+
+	<INCLURE{fond=inc-pied}{id_rubrique}>
+</div><!--#page-->
+</body>
+</html>
+</BOUCLE_principale>

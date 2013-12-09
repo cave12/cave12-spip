@@ -28,7 +28,7 @@
     		
     		<div id="date" class="art-date[ redac (#DATE_REDAC|jour)] dtstart" title="[(#DATE|affdate{'Y-m-d'})]">
     			<div class="uppercase center day">[(#DATE_REDAC|nom_jour) - ][(#DATE|nom_jour)]</div>
-    			<div class="center daynr notc">[(#DATE_REDAC|jour)-][(#DATE|jour)]</div>
+    			<div class="center daynr notc">[(#DATE_REDAC|jour)-][(#DATE|jour|replace{1er, 1<sup class="sup">er</sup>})]</div>
     			<div class="uppercase center month">[(#DATE|nom_mois)]</div>
     			<div class="uppercase center year">[(#DATE|annee)]</div>
     		</div>

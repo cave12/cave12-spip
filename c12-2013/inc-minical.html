@@ -3,7 +3,7 @@
 	<BOUCLE_concerts_pre(ARTICLES){id_rubrique=1}{age<1}{par date}{0,23}>
 		<li class="mini-cal-box concert-no-#ID_ARTICLE">
 			<a href="#URL_ARTICLE" title="[(#TITRE)]">
-			[(#DATE_REDAC|jour)-][(#DATE|jour)]</a></li>
+			[(#DATE_REDAC|jour)-][(#DATE|jour|replace{1er, 1<sup class="sup">er</sup>})]</a></li>
 	</BOUCLE_concerts_pre>
 			
 </ul>

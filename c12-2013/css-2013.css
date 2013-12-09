@@ -419,6 +419,17 @@ h1.site-title,
 	border-color: #ce0000;
 }
 
+.art-date .sup { /* superscript */
+	font-size: 50%;
+	margin: 0 -0.2em;
+/*	vertical-align: super;*/
+}	
+
+.mini-cal-box .sup { 
+	font-size:70%;
+	vertical-align: super;
+}
+
 .contenu .demain {
 	background-color: #f2f2f2;
 }
@@ -604,7 +615,7 @@ h3.titre-sommaire-h3,
 	
 .contenu .art-box .art-date .daynr {
 	font-size:2em;
-	font-weight:600;
+/*	font-weight:600;*/
 }
 .contenu .art-box .art-date a {
 	text-decoration:none;

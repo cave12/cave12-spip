@@ -45,7 +45,7 @@
 				<div class="art-box vevent<BOUCLE_recent(ARTICLES){id_article}{age<1}{age>0}> recent</BOUCLE_recent><BOUCLE_demain(ARTICLES){id_article}{age<=0}{age>-5}> demain</BOUCLE_demain><BOUCLE_futur(ARTICLES){id_article}{age<=-5}> futur</BOUCLE_futur>">
 					<div class="art-date[ redac (#DATE_REDAC|jour)] dtstart" role="article">
 						<a href="#URL_ARTICLE" rel="bookmark" class="value-title" title="[(#DATE|affdate{'Y-m-d'})]"><div class="uppercase center day">[(#DATE|nom_jour)]</div>
-						<div class="center daynr">[(#DATE_REDAC|jour)-][(#DATE|jour)]</div>
+						<div class="center daynr">[(#DATE_REDAC|jour)-][(#DATE|jour|replace{1er, 1<sup class="sup">er</sup>})]</div>
 						<div class="uppercase center month">[(#DATE|nom_mois)]</div></a>
 					</div><!-- .art-date -->
 					<!-- microformat data -->

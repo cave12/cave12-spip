@@ -6,6 +6,8 @@
 	http://www.cave12.org/squelettes/c12/cssC12-120708b.min.css
 	http://beta.cave12.org/squelettes/c12/cssC12.css
 	http://beta.cave12.org/squelettes/c12-2013/css-2013.css
+	http://www.cave12.org/local/cache-css/26defaed02aea38889964eb566dfef1e.css
+	http://www.cave12.org/squelettes/c12-2013/css-2013.css
 */
 
 /*
@@ -474,24 +476,16 @@ h1.site-title,
 /* @end */
 
 .intro-block {
-/*	border: 1px solid #0f0;*/
 	float: left;
-/*	width: 100%;*/
 	position: relative;
 }
 
 .contenu .intro {
-	float: none;
-	float: right;
 	clear: none;
 	position: relative;
 	height: auto;
 	padding-left: 10px;
-/*	padding-left: 9em;*/
 	padding-top: 0.1em;
-/*	width: 80%;*/
-/*	border: 1px solid #333;*/
-/*	margin-bottom:20px;*/
 	color: #303030;
 	z-index: 1;
 	}
@@ -509,24 +503,12 @@ h1.site-title,
 	margin: 10px 0px 0 0px;
 	padding: 0px;
 	line-height: 1.25em;
-/*	border: 1px solid #0f0;*/
 	max-width: 100%;
-/*	line-height: 1.0em;*/
-	
-/*	text-shadow: 1px 1px 1px #e4e4e4;*/
-/*	text-shadow: 1px 1px 1px #afafaf;*/
-	/*color: #303030;*/
 	}
 
 .programme-txt p {
 	padding: 0 10px;
-	
-/*	-ms-word-break: break-all;
-	     word-break: break-all;*/
-	
-	     /* Non standard for webkit */
-/*	     word-break: break-word;*/
-	
+
 	-webkit-hyphens: auto;
 	   -moz-hyphens: auto;
 	        hyphens: auto;
@@ -541,9 +523,6 @@ span.dtstart {
 	display: none;
 }
 
-span.summary {
-/*	display: block;*/
-}
 
 /* @end */
 
@@ -734,9 +713,8 @@ h3.titre-sommaire-h3,
 	background-position: bottom;
 }
 
-.concert-series #contenu #intro {
-/*	margin-left: 0;*/
-	left: 0.7em;
+.concert-series .contenu .intro {
+	padding-left: 0.7em;
 }
 
 /* @end */
@@ -1001,13 +979,17 @@ ul.navigation-top {
 	
 .bloc-navig ul li {
 	display: block;
-	border: 1px solid red;
-	padding: 0.1em 0.5em 0.3em 0.5em;
+	
 	float: left;
 	margin-right: 0.4em;
 	margin-bottom: 0.4em;
 /*	clear: left;*/
 	}
+	
+.bloc-navig li a {
+	border: 1px solid red;
+	padding: 0.1em 0.5em 0.3em 0.5em;
+}
 	
 .bloc-navig li.nav-search {
 	clear: left;
@@ -1141,12 +1123,16 @@ and (min-width : 740px) {
 		}
 		
 		.bloc-navig ul li {
-			border: 0px;
-			padding: 0;
+			
 			margin-right: 0;
 			margin-bottom: 0;
 			clear: left;
 			}
+			
+		.bloc-navig li a {
+			border: 0px;
+			padding: 0;
+		}
 	
 		ul.navigation-top {
 			border-top: 0;

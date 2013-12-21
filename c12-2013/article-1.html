@@ -21,7 +21,6 @@
 
     <div id="contenu" class="contenu programme vevent clear" role="main">
       
-      
       <div class="intro-block clear">
         
     	<div class="date-block">
@@ -54,6 +53,36 @@
 				<!-- {fond=inc-affiches}{id_article}{env} -->
 				
 				[(#TEXTE|image_reduire{500,0})]
+				
+				[(#REM) montrer les autres concerts du même artiste
+				"Autres concerts de ... à la cave12:"
+				Tester mot-clé de groupe artiste (id_groupe=3), retourner les articles autres que l'actuel.
+				]
+								
+				<B_artistes>
+					<div class="autres-concerts">
+						<BOUCLE_artistes(MOTS) {id_article} {id_groupe=3}>
+								<B_autresconcerts>
+								
+								<hr class="divider" />
+								
+								<p>Autres concerts de <a href="[(#URL_MOT)]" class="nom-artiste">[(#TITRE)]</a> à la cave12:</p>
+								<ul>
+								
+									<BOUCLE_autresconcerts(ARTICLES){id_article!=#ID_ARTICLE}{mots_liens.id_mot}{par date}>
+										<li class="liste-concerts max-width">
+											<span class="date">[(#DATE|jour)] [(#DATE|nom_mois)] [(#DATE|annee)]</span>: <a href="#URL_ARTICLE" class="lien-article">#TITRE</a>
+										</li>
+									</BOUCLE_autresconcerts>
+									</ul>
+								</B_autresconcerts>
+								
+						</BOUCLE_artistes>
+					</div>
+				</B_artistes>
+				
+				<//B_artistes>
+				
 			</div>
 			
 			

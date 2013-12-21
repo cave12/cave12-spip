@@ -14,12 +14,16 @@
 
 </head>
 
-<body class="page_article concert-series" onLoad="systest()">
+<body class="page_article concert-series">
 <div id="page">
 
-	<INCLURE{fond=inc-entete}{id_rubrique}>
+	<INCLURE{fond=inc-entete}{id_rubrique}{id_article}>
 	
-	<h1 style="clear:left" class="title-bloc">[(#SURTITRE)]</h1>
+	<div id="contenu" class="contenu programme vevent clear" role="main">
+	
+	<div class="intro-block clear">
+	
+	<h1 class="title-bloc">[(#SURTITRE)]</h1>
 		
 	<BOUCLE_intro(ARTICLES) {id_article=215}>
 		<div class="texte-intro fleft"> 
@@ -47,16 +51,18 @@
 	</div>
 	</B_dates>
 
-    <div id="contenu" class="programme vevent cleft">
     		
-    		<div id="intro">
+    		<div id="intro" class="intro">
     		[<h1 class="summary">(#TITRE)</h1>]
 			<!-- microformat data -->
     		<span class="category">Concert</span>
     		<!-- / microformat data -->
 			[<div id="chapo" class="#EDIT{chapo} description">(#CHAPO)</div>]
 			</div>
-			<div id="programme-txt" class="#EDIT{texte}">
+			
+			</div><!-- .intro-block -->
+			
+			<div id="programme-txt" class="#EDIT{texte} programme-txt">
 			[(#TEXTE|image_reduire{500,0})]
 		
 		[(#REM) Gestion du portfolio

@@ -14,16 +14,17 @@
 
 </head>
 
-<body class="page_article concert-series" onLoad="systest()">
+<body class="page_article concert-series">
 <div id="page">
 
-	<INCLURE{fond=inc-entete}{id_rubrique}>
+	<INCLURE{fond=inc-entete}{id_rubrique}{id_article}>
 	
-	<h1 style="clear:left" class="title-bloc">Cataclysme Pianos</h1>
+	<div id="contenu" class="contenu programme vevent clear" role="main">
+	
+	<div class="intro-block clear">
+	
+	<h1 class="title-bloc">Cataclysme Pianos</h1>
 		
-	
-	<!-- tester si composition = mac2011 -->
-	
 	<B_dates>
 		<div class="cleft">
 		<BOUCLE_dates(ARTICLES) {composition=piano}>
@@ -40,25 +41,30 @@
 		
 		</div>
 	</B_dates>
-
-    <div id="contenu" class="programme vevent cleft">
     		
-    		<div id="intro">
-    		<div id="map-container" class="hidden"></div>
-    		[<h1 class="summary">(#TITRE)</h1>]
-			<!-- microformat data -->
-    		<span class="category">Concert</span>
-    		<!-- / microformat data -->
-			[<div id="chapo" class="#EDIT{chapo} description">(#CHAPO)</div>]
-			</div>
-			<div id="programme-txt" class="#EDIT{texte}">
-			[(#TEXTE|image_reduire{500,0})]
-		
-		[(#REM) Gestion du portfolio
-		][(#INCLURE{fond=inc-documents}{id_article}{env})]
-
-        [<div class="notes surlignable"><h2 class="pas_surlignable"><:info_notes:></h2>(#NOTES)</div>]
-			</div>
+    		<div id="intro" class="intro">
+    				<div id="map-container" class="hidden"></div>
+    				[<h1 class="summary">(#TITRE)</h1>]
+    			<!-- microformat data -->
+    				<span class="category">Concert</span>
+    				<!-- / microformat data -->
+    		    	[<h2 class="#EDIT{surtitre} surtitre">(#SURTITRE)</h2>]
+    			[<div id="chapo" class="#EDIT{chapo} description">(#CHAPO)</div>]
+    		</div><!-- #intro -->
+    		
+    		</div><!-- .intro-block -->
+    		
+    		<div id="programme-txt" class="#EDIT{texte} programme-txt">
+    			<!-- {fond=inc-affiches}{id_article}{env} -->
+    			
+    			[(#TEXTE|image_reduire{500,0})]
+    			
+    			[(#REM) montrer les autres concerts du même artiste
+    			"Autres concerts de ... à la cave12:"
+    			Tester mot-clé de groupe artiste, retourner les articles autres que l'actuel.
+    			]
+    			
+    		</div>
 			
 	</div><!--#contenu-->
 

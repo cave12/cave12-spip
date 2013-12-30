@@ -1162,6 +1162,9 @@ and (min-width : 740px) {
 		.contenu .intro {
 			padding-left: 9em;
 		}
+		.contenu .intro-redac {
+			padding-left: 13em;
+		}
 		.intro-block {
 			min-height: 10em;
 		}

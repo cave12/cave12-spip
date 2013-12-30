@@ -894,6 +894,47 @@ ul.top-archive li {display:inline;}
 
 /* @end */
 
+/* @group List of Concerts */
+
+a.li-co {
+	display: block;
+	cursor: pointer;
+	text-decoration: none;
+/*	border: 1px solid #333;*/
+}
+
+
+.li-co h3 {
+	text-decoration: underline;
+	font-size: 100%;
+	margin-top: 1em;
+	margin-bottom: 0.2em;
+}
+a.li-co .date {
+	color: #333;
+	margin-top: 0em;
+	margin-bottom: 1.5em;
+}
+
+a.ar-co-pre {
+	background: #ddd;
+	min-height: 9em;
+	padding: 1em;
+	background-size: cover;
+}
+
+/* with images */
+
+.li-co-in {
+	background: #fff;
+	padding: 0.1em 1em;
+/*	float: left;*/
+	width: auto;
+	max-width: 50%;
+}
+
+/* @end */
+
 /* @group Google Maps */
 
 .mot-lieu {

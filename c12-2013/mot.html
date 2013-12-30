@@ -83,10 +83,27 @@
 				
 				<h2>Concerts</h2>
 					<BOUCLE_article_artistes(ARTICLES){mots_liens.id_mot}{!par date}>
-						<div class="liste-concerts max-width">
-							<a href="#URL_ARTICLE" class="lien-article">#TITRE</a>
-							<div><span class="date">[(#DATE|jour)] [(#DATE|nom_mois)] [(#DATE|annee)]</span></div>
-						</div>
+						
+						
+							<B_photos>
+							<a class="ar-co-pre li-co" href="#URL_ARTICLE"<BOUCLE_photos(DOCUMENTS) {id_article} {mode=image}{extension IN png,jpg,gif} {!mots.type=Affiche par}{par num titre, date}{doublons}{vu=non}{0,1}>[
+								style="background-image:url((#FICHIER|copie_locale|image_reduire{920,1800}|image_recadre{920,225,center}|extraire_attribut{src}|url_absolue))"]</BOUCLE_photos> >
+									<div class="li-co-in max-width">
+										<h3 class="norm">#TITRE</h3>
+										<p class="unstyled date">[(#DATE|jour)] [(#DATE|nom_mois)] [(#DATE|annee)]</p>
+									</div>
+								</a>
+								
+							</B_photos>
+								
+								<a class="li-co max-width" href="#URL_ARTICLE">
+									<h3 class="norm">#TITRE</h3>
+									<p class="unstyled date">[(#DATE|jour)] [(#DATE|nom_mois)] [(#DATE|annee)]</p>
+								</a>
+								
+							<//B_photos>
+					
+						
 					</BOUCLE_article_artistes>
 				</B_article_artistes>
 								

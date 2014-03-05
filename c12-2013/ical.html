@@ -5,9 +5,11 @@ PRODID: SPIP http://www.spip.net
 VERSION:2.0
 X-WR-CALNAME;VALUE=TEXT:[(#NOM_SITE_SPIP|filtrer_ical)]
 X-WR-RELCALID:[(#URL_SITE_SPIP|filtrer_ical)]
+X-WR-TIMEZONE:Europe/Zurich
+TZID:Europe/Zurich
 <BOUCLE_articles(ARTICLES){id_rubrique=1}{par date}{age<1}{inverse}{0,100}>
 BEGIN:VEVENT
-SUMMARY;CHARSET=UTF-8;ENCODING=QUOTED-PRINTABLE:[(#TITRE|filtrer_ical)] [[(#SURTITRE|filtrer_ical)]]
+SUMMARY;CHARSET=UTF-8;ENCODING=QUOTED-PRINTABLE:[(#TITRE|filtrer_ical)]
 UID:article#ID_ARTICLE @ [(#URL_SITE_SPIP|filtrer_ical)]
 DTSTAMP:[(#DATE|date_ical)]
 DTSTART:[(#DATE|date_ical)]
@@ -17,7 +19,7 @@ URL:[(#URL_ARTICLE|url_absolue)]
 STATUS:CONFIRMED
 END:VEVENT</BOUCLE_articles><BOUCLE_breves(BREVES){par date}{inverse}{0,100}>
 BEGIN:VEVENT
-SUMMARY:[(#TITRE|filtrer_ical)] [[(#SURTITRE|filtrer_ical)]]
+SUMMARY:[(#TITRE|filtrer_ical)]
 UID:breve#ID_BREVE @ [(#URL_SITE_SPIP|filtrer_ical)]
 DTSTAMP:[(#DATE|date_ical)]
 DTSTART:[(#DATE|date_ical)]

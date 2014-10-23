@@ -283,7 +283,7 @@ h1.site-title,
 
 .mini-cal-box a,
 .mini-cal .current {
-	width: 2em;
+	min-width: 2em;
 	height: 1.7em;
 	padding: 0.3em;
 }

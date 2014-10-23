@@ -32,10 +32,6 @@ nbproject
 _notes
 dwsync.xml
 
-# Komodo
-*.komodoproject
-.komodotools
-
 # Temporary files #
 ###################
 *.autosave

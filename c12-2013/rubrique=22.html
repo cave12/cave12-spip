@@ -17,14 +17,32 @@
     <div id="contenu" class="contenu" role="main">
     
     	<div class="contenu-chapitre">
-   			 <h1>affiches:</h1>
    			 
    			 <div class="bloc-affiches">
+   			 	 <B_aff_xavier>
+   			 	 	<h2>Affiches par Xavier Robel</h2>
+   			 	 	<div class="affiche affiche-pdf">
+   			 	 	<ul class="ul-horiz-img">
+   			 	 		<BOUCLE_aff_xavier(DOCUMENTS mots_liens) {mots.titre=Xavier Robel} {extension==pdf}  {0,5} {!par date}>
+   			 	 		<li><a href="/Xavier-Robel[#img(#ID_DOCUMENT)]">[(#LOGO_DOCUMENT
+   			 	 		|image_passe_partout{130,180}
+   			 	 		|image_recadre{130,180,center})]</a></li>
+   			 	 		</BOUCLE_aff_xavier>
+   			 	 		</ul>
+   			 	 	</div>
+   			 	 </B_aff_xavier>
+   			 	 
+   			 	 <p class="affiche-credits">
+   			 	 (<a href="/Xavier-Robel">voir +</a>)
+   			 	 </p>
+   			  </div>
    			 
+   			 <div class="bloc-affiches">
+   			 <h2>Affiches par Harrisson</h2>
 	   			 <B_aff_harr>
 	   			 	<div class="affiche affiche-pdf">
 	   			 	<ul class="ul-horiz-img">
-	   			 		<BOUCLE_aff_harr(DOCUMENTS mots_liens) {mots.titre=Harrisson} {extension==pdf}  {0,6} {!par date}>
+	   			 		<BOUCLE_aff_harr(DOCUMENTS mots_liens) {mots.titre=Harrisson} {extension==pdf}  {0,5} {!par date}>
 	   			 		<li><a href="/Harrisson[#img(#ID_DOCUMENT)]">[(#LOGO_DOCUMENT
 	   			 		|image_passe_partout{130,180}
 	   			 		|image_recadre{130,180,center})]</a></li>
@@ -34,16 +52,16 @@
 	   			 </B_aff_harr>
 	   			 
 	   			 <p class="affiche-credits">
-	   			 Affiches par Harrisson (<a href="/Harrisson">voir +</a>)
+	   			 (<a href="/Harrisson">voir +</a>)
 	   			 </p>
    			 </div>
    			 
    			 <div class="bloc-affiches">
-   			 
+   			 <h2>Affiches par Thomas Perrodin</h2>
    			 	 <B_aff_thomas>
    			 	 	<div class="affiche affiche-pdf">
    			 	 	<ul class="ul-horiz-img">
-   			 	 		<BOUCLE_aff_thomas(DOCUMENTS mots_liens) {mots.titre=Thomas Perrodin} {0,6} {!par date}>
+   			 	 		<BOUCLE_aff_thomas(DOCUMENTS mots_liens) {mots.titre=Thomas Perrodin} {0,5} {!par date}>
    			 	 		<li><a href="/Thomas-Perrodin[#img(#ID_DOCUMENT)]">[(#FICHIER
    			 	 		|image_passe_partout{130,180}
    			 	 		|image_recadre{130,180,center})]</a></li>
@@ -53,7 +71,7 @@
    			 	 </B_aff_thomas>
    			 	 
    			 	 <p class="affiche-credits">
-   			 	 Affiches par Thomas Perrodin (<a href="/Thomas-Perrodin">voir +</a>)
+   			 	 (<a href="/Thomas-Perrodin">voir +</a>)
    			 	 </p>
    			 </div>
    			 

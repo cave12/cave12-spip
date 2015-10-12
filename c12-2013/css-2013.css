@@ -836,7 +836,7 @@ ul.top-archive li {display:inline;}
 }
 
 .bloc-affiches {
-	width: 50%;
+	width: 100%;
 /*	border: 1px solid #333;*/
 	margin: 0;
 	padding: 0;
@@ -1216,6 +1216,9 @@ and (min-width : 740px) {
 		}
 		.contenu .intro-redac {
 			padding-left: 13em;
+		}
+		.article-id-619 .contenu .intro-redac {
+			padding-left: 14.5em;
 		}
 		.intro-block {
 			min-height: 10em;

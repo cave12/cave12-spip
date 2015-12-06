@@ -778,10 +778,11 @@ ul.top-archive li {display:inline;}
 	float: left;
 	margin: 10px;
 	padding: 8px;
-	-moz-box-shadow: 0 0 10px #ececec;
+	padding-top: 18px;
+/*	-moz-box-shadow: 0 0 10px #ececec;
 	-webkit-box-shadow: 0 0 10px #ececec;
-	box-shadow: 0 0 10px #ececec;
-	border: 4px double #d0d0d0;
+	box-shadow: 0 0 10px #ececec;*/
+/*	border: 4px double #d0d0d0;*/
 }
 
 .rubrique_liens_soutiens .entry-content  p:last-of-type {

@@ -1,4 +1,4 @@
-[(#REM) rubrique 28 = archives 2015
+[(#REM) rubrique 28 = archives 2016
 	Un cache plus court, pour la boucle syndic_articles
 ]#CACHE{3600}
 <BOUCLE_principale(RUBRIQUES) {id_rubrique}>
@@ -40,14 +40,14 @@
             [<p class="#EDIT{texte} texte entry-content">(#TEXTE|image_reduire{500,0})</p>]
             
             <ul class="articles">
-         	<BOUCLE_articles(ARTICLES){id_rubrique=1}{annee=2015}{age>0}{par date}>
+         	<BOUCLE_articles(ARTICLES){id_rubrique=1}{annee=2016}{age>0}{par date}>
                 <li>[<strong>(#SURTITRE)</strong><br/>]
                   <span class="date">[(#DATE|jour)] [(#DATE|nom_mois)]</span> – 
                    <a href="#URL_ARTICLE">#TITRE</a>
                 </li>
             </BOUCLE_articles>
             </ul>
-            [(#TOTAL_BOUCLE) concerts en 2015.]<!-- nombre de concerts: #TOTAL_BOUCLE -->
+            [Déjà (#TOTAL_BOUCLE) concerts cette année...]<!-- nombre de concerts: #TOTAL_BOUCLE -->
         </B_articles>
         <!-- si aucun résultat -->
         <h1 class="entry-title">archives #TITRE</h1>  

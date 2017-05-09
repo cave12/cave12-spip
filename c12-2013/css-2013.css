@@ -1212,18 +1212,22 @@ and (min-width : 740px) {
 		
 		.page_article .date-block {
 			display: block;
+			position: relative;
 		}
 		.contenu .intro {
 			padding-left: 9em;
+			padding-left: 1em;
 		}
 		.contenu .intro-redac {
 			padding-left: 13em;
+			padding-left: 1em;
 		}
 		.article-id-619 .contenu .intro-redac {
-			padding-left: 14.5em;
+			/*padding-left: 14.5em;*/
 		}
 		.intro-block {
 			min-height: 10em;
+			display: flex;
 		}
 		.programme-txt {
 		 max-width: 35em;	
